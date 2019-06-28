@@ -1,0 +1,91 @@
+version: 2
+jobs:
+  dependencies:
+    docker:
+      - image: circleci/node:11.14.0
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - dependencies-{{ checksum "package.json" }}
+            - dependencies-
+      - run:
+          command: |
+            npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: dependencies-{{ checksum "package.json" }}
+      - persist_to_workspace:
+          root: .
+          paths:
+            - '*'
+
+  build:
+    docker:
+      - image: circleci/node:11.14.0
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          command: |
+            npm build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - ./public
+      - store_artifacts:
+          path: ./public
+
+  smoke-test:
+    machine: true
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: deploy smoke-test
+          command: |
+            export TF_WS=smoke-test-${CIRCLE_BUILD_NUM}
+            ./scripts/terraform-init.sh 
+            echo "creating workspace ${TF_WS} ..."
+            ./scripts/terraform.sh workspace new ${TF_WS}
+            echo "... created"
+            ./scripts/deploy.sh
+      - deploy:
+          name: destroy smoke-test
+          when: always
+          command: |
+            export TF_WS=smoke-test-${CIRCLE_BUILD_NUM}
+            ./scripts/deploy.sh --destroy
+            echo "deleting workspace ${TF_WS} ..."
+            ./scripts/terraform.sh workspace select test
+            ./scripts/terraform.sh workspace delete -force ${TF_WS}
+            echo "... deleted"
+
+  deploy:
+    machine: true
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          command: |
+            ./scripts/deploy.sh
+
+
+workflows:
+  version: 2
+
+  ci:
+    jobs:
+      - dependencies
+      - build:
+          requires:
+            - dependencies
+      - smoke-test:
+          requires:
+            - build
+      - deploy:
+          requires:
+            - smoke-test

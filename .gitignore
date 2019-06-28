@@ -12,3 +12,4 @@ yarn.lock
 # Deploy
 deploy/.terraform
 deploy/plan
+deploy/generated*

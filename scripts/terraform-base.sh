@@ -46,8 +46,9 @@ SCRIPT_PARENT_DIR=`dirname $SCRIPT_DIR`
 TF_CLI_CONFIG_FILE_DIR="$( cd "$(dirname "$TF_CLI_CONFIG_FILE")" ; pwd -P )"
 
 TERRAFORM_BASE="docker run -i -t \
-    -v $SCRIPT_PARENT_DIR:/workingdir -w /workingdir/deploy \
     -v $TF_CLI_CONFIG_FILE_DIR:/root \
+    -v $PWD:$PWD \
+    -w $PWD/deploy \
     -e TF_IN_AUTOMATION=1 \
     -e TF_WS \
     -e TF_LOG \
