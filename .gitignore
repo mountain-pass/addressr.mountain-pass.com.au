@@ -8,3 +8,7 @@ yarn.lock
 # Build directory
 /public
 .DS_Store
+
+# Deploy
+deploy/.terraform
+deploy/plan

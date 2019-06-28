@@ -2,13 +2,18 @@
   "name": "addressr.mountain-pass.com.au",
   "description": "Website for Addressr",
   "version": "1.0.0",
-  "author": "Tom Howard <tom@mountain-pass.com.au>",
+  "author": "Mountain Pass <addressr@mountain-pass.com.au>",
+  "engines": {
+    "node": ">=11.14.0"
+  },
   "dependencies": {},
   "keywords": [
     "gatsby"
   ],
   "license": "SEE LICENSE IN LICENSE.md",
   "scripts": {
+    "postinstall": "npm run requirements-check",
+    "requirements-check": "./scripts/check-version.js",
     "build": "gatsby build",
     "dev": "gatsby develop",
     "format": "prettier --write '**/*.js'",
@@ -44,7 +49,8 @@
     "husky": "^1.1.2",
     "imagemin-lint-staged": "^0.4.0",
     "lint-staged": "^7.3.0",
-    "npm-check": "^5.9.0"
+    "npm-check": "^5.9.0",
+    "semver": "^6.1.1"
   },
   "repository": {
     "type": "git",
