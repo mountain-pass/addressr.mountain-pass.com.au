@@ -31,7 +31,7 @@ jobs:
           at: .
       - run:
           command: |
-            npm build
+            npm run build
       - persist_to_workspace:
           root: .
           paths:
@@ -83,9 +83,6 @@ workflows:
       - build:
           requires:
             - dependencies
-      - smoke-test:
-          requires:
-            - build
       - deploy:
           requires:
-            - smoke-test
+            - build
