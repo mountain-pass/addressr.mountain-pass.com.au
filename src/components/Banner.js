@@ -8,9 +8,9 @@ const Banner = () => (
       </header>
       <div className="content">
         <p>
-          Blah, blah, blah
+          Because Address Look ups
           <br />
-          Muhahahah
+          Shouldn&apos;t cost the world
         </p>
         <ul className="actions">
           <li>
