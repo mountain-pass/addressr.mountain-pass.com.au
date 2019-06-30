@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Addressr',
     author: 'Mountain Pass',
-    description: 'Australian Address Lookups and Autocomplete',
+    description: 'Australian Address Validation and Autocomplete',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -20,5 +20,19 @@ module.exports = {
     },
     'gatsby-plugin-sass',
     'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-118656795-1',
+        // Puts tracking script in the head instead of the body
+        head: true,
+        // Setting this parameter is optional
+        anonymize: false,
+        // Setting this parameter is also optional
+        respectDNT: true,
+        // Avoids sending pageview hits from custom paths
+        exclude: [],
+      },
+    },
   ],
 };

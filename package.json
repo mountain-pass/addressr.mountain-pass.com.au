@@ -23,7 +23,6 @@
     "lint": "node_modules/.bin/eslint src --fix"
   },
   "devDependencies": {
-    "prettier": "^1.14.2",
     "eslint": "^5.7.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^2.9.0",
@@ -38,18 +37,20 @@
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-standard": "^3.1.0",
     "gatsby": "^2.2.9",
+    "gatsby-plugin-google-analytics": "^2.1.1",
     "gatsby-plugin-manifest": "^2.0.24",
     "gatsby-plugin-offline": "^2.0.25",
     "gatsby-plugin-react-helmet": "^3.0.10",
     "gatsby-plugin-sass": "^2.0.11",
-    "node-sass": "^4.11.0",
-    "react": "^16.8.5",
-    "react-dom": "^16.8.5",
-    "react-helmet": "^5.2.0",
     "husky": "^1.1.2",
     "imagemin-lint-staged": "^0.4.0",
     "lint-staged": "^7.3.0",
+    "node-sass": "^4.11.0",
     "npm-check": "^5.9.0",
+    "prettier": "^1.14.2",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
+    "react-helmet": "^5.2.0",
     "semver": "^6.1.1"
   },
   "repository": {
