@@ -100,7 +100,7 @@ const HomeIndex = () => (
               &nbsp;
               <br />
               Or for peace of mind for your misson critical soultions, get
-              commercial support you can truely rely on.
+              commercial support you can truly rely on.
             </p>
           </header>
           {/* <Link to="/landing" className="link primary" /> */}
