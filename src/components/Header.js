@@ -6,7 +6,7 @@ import React from 'react';
 const Header = ({ onToggleMenu }) => (
   <header id="header" className="alt">
     <Link to="/" className="logo">
-      <strong>Forty</strong> <span>by HTML5 UP</span>
+      <strong>Addressr</strong> <span>by Mountain Pass</span>
     </Link>
     <nav>
       <a className="menu-link" onClick={onToggleMenu} href="javascript:;">

@@ -6,7 +6,7 @@ import Layout from '../components/layout';
 const Generic = () => (
   <Layout>
     <Helmet>
-      <title>Generic - Forty by HTML5 UP</title>
+      <title>Generic - Addressr by Mountain Pass</title>
       <meta name="description" content="Generic Page" />
     </Helmet>
 

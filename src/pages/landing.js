@@ -10,7 +10,7 @@ import Layout from '../components/layout';
 const Landing = () => (
   <Layout>
     <Helmet>
-      <title>Landing - Forty by HTML5 UP</title>
+      <title>Landing - Addressr by Mountain Pass</title>
       <meta name="description" content="Landing Page" />
     </Helmet>
 

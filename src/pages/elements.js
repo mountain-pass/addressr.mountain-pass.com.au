@@ -10,7 +10,7 @@ import Layout from '../components/layout';
 const Elements = () => (
   <Layout>
     <Helmet>
-      <title>Elements - Forty by HTML5 UP</title>
+      <title>Elements - Addressr by Mountain Pass</title>
       <meta name="description" content="Elements Page" />
     </Helmet>
 

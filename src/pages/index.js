@@ -9,14 +9,15 @@ import pic05 from '../assets/images/pic05.jpg';
 import pic06 from '../assets/images/pic06.jpg';
 import Banner from '../components/Banner';
 import Layout from '../components/layout';
+import dataGovLogo from './Data-gov-au.jpg';
 
 const HomeIndex = () => (
   <Layout>
     <Helmet
-      title="Gatsby Starter - Forty"
+      title="Addressr by Mountain Pass"
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        { name: 'description', content: 'Free Australian Address Validation' },
+        { name: 'keywords', content: 'address, validation, gnaf, australia' },
       ]}
     />
 
@@ -26,65 +27,102 @@ const HomeIndex = () => (
       <section id="one" className="tiles">
         <article style={{ backgroundImage: `url(${pic01})` }}>
           <header className="major">
-            <h3>Aliquam</h3>
-            <p>Ipsum dolor sit amet</p>
+            <h3>Australian Data Source</h3>
+
+            <p>
+              Addresses validated against the Geocoded National Address File
+              (referred to as G-NAF), Australia’s authoritative address file.
+            </p>
+            <span
+              className="image fit"
+              style={{
+                display: 'block',
+                background: '#f2f2f2',
+                width: '100%',
+                padding: '0.5em 0em',
+                marginTop: '0.6em',
+              }}
+            >
+              <img
+                src={dataGovLogo}
+                alt="data.gov.au logo"
+                style={{
+                  width: '20%',
+                  margin: 'auto',
+                }}
+              />
+            </span>
           </header>
-          <Link to="/landing" className="link primary" />
+          {/* <Link to="/landing" className="link primary" /> */}
         </article>
         <article style={{ backgroundImage: `url(${pic02})` }}>
           <header className="major">
-            <h3>Tempus</h3>
-            <p>feugiat amet tempus</p>
+            <h3>Always Up-To-Date</h3>
+            <p>
+              Addressr automatically updates with the latest data, so
+              you&apos;re never out-of-date.
+            </p>
           </header>
-          <Link to="/landing" className="link primary" />
+          {/* <Link to="/landing" className="link primary" /> */}
         </article>
         <article style={{ backgroundImage: `url(${pic03})` }}>
           <header className="major">
-            <h3>Magna</h3>
-            <p>Lorem etiam nullam</p>
+            <h3>Real-time Address Validation</h3>
+            <p>Add address autocomplete to your forms</p>
           </header>
-          <Link to="/landing" className="link primary" />
+          {/* <Link to="/landing" className="link primary" /> */}
         </article>
         <article style={{ backgroundImage: `url(${pic04})` }}>
           <header className="major">
-            <h3>Ipsum</h3>
-            <p>Nisl sed aliquam</p>
+            <h3>Easy To Use API</h3>
+            <p>Build your solution quickly, with our straightforward API</p>
           </header>
-          <Link to="/landing" className="link primary" />
+          {/* <Link to="/landing" className="link primary" /> */}
         </article>
         <article style={{ backgroundImage: `url(${pic05})` }}>
           <header className="major">
-            <h3>Consequat</h3>
-            <p>Ipsum dolor sit amet</p>
+            <h3>Run On Your Own Infrastructure</h3>
+            <p>
+              On-premise or in the cloud, run Addressr on your own
+              infrastructure, so your have full control over costs
+            </p>
           </header>
-          <Link to="/landing" className="link primary" />
+          {/* <Link to="/landing" className="link primary" /> */}
         </article>
         <article style={{ backgroundImage: `url(${pic06})` }}>
           <header className="major">
-            <h3>Etiam</h3>
-            <p>Feugiat amet tempus</p>
+            <h3>Completely Free or Pay for Support</h3>
+            <p>
+              That&apos;s right, Addressr is completely free.{' '}
+              <strong style={{ color: 'black', fontWeight: '800' }}>
+                Forever.
+              </strong>
+              &nbsp;
+              <br />
+              Or for peace of mind for your misson critical soultions, get
+              commercial support you can truely rely on.
+            </p>
           </header>
-          <Link to="/landing" className="link primary" />
+          {/* <Link to="/landing" className="link primary" /> */}
         </article>
       </section>
       <section id="two">
         <div className="inner">
           <header className="major">
-            <h2>Massa libero</h2>
+            <h2>
+              Begin Validating
+              <br />
+              Australian Addresses
+            </h2>
           </header>
           <p>
-            Nullam et orci eu lorem consequat tincidunt vivamus et sagittis
-            libero. Mauris aliquet magna magna sed nunc rhoncus pharetra.
-            Pellentesque condimentum sem. In efficitur ligula tate urna.
-            Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor.
-            Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis
-            libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et
-            feugiat tempus.
+            Get Addressr. Start validating addresses and adding address
+            autocomplete to your forms <strong>today</strong>.
           </p>
           <ul className="actions">
             <li>
-              <Link to="/landing" className="button next">
-                Get Started
+              <Link to="#contact" className="button next scrolly">
+                Get Started Free
               </Link>
             </li>
           </ul>

@@ -12,7 +12,7 @@ const Menu = ({ onToggleMenu }) => (
             Home
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link onClick={onToggleMenu} to="/landing">
             Landing
           </Link>
@@ -26,7 +26,7 @@ const Menu = ({ onToggleMenu }) => (
           <Link onClick={onToggleMenu} to="/elements">
             Elements
           </Link>
-        </li>
+        </li> */}
       </ul>
       <ul className="actions vertical">
         <li>
@@ -34,11 +34,11 @@ const Menu = ({ onToggleMenu }) => (
             Get Started
           </a>
         </li>
-        <li>
+        {/* <li>
           <a href="#" className="button fit">
             Log In
           </a>
-        </li>
+        </li> */}
       </ul>
     </div>
     <a className="close" onClick={onToggleMenu} href="javascript:;">

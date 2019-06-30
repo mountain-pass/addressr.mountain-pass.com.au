@@ -18,5 +18,7 @@
     },
     "editor.formatOnSave": false
   },
-  "spellright.addToSystemDictionary": true
+  "spellright.addToSystemDictionary": true,
+  "spellright.language": ["en"],
+  "spellright.documentTypes": ["markdown", "latex", "plaintext", "javascript"]
 }

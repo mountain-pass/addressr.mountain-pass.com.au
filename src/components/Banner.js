@@ -8,14 +8,14 @@ const Banner = () => (
       </header>
       <div className="content">
         <p>
-          Because Address Look ups
+          Because address validation&nbsp;
           <br />
           Shouldn&apos;t cost the world
         </p>
         <ul className="actions">
           <li>
-            <a href="#one" className="button next scrolly">
-              Get Started
+            <a href="#contact" className="button next scrolly">
+              Get Started Free
             </a>
           </li>
         </ul>

@@ -31,7 +31,12 @@ const Footer = () => (
         </li>
       </ul> */}
       <ul className="copyright">
-        <li>&copy; Mountain Pass PTY LTD</li>
+        <li>
+          &copy; <a href="mountain-pass.com.au">Mountain Pass PTY LTD</a>
+        </li>
+        <li>
+          Base Website Design by <a href="https://html5up.net">HTML5 UP</a>
+        </li>
       </ul>
     </div>
   </footer>
