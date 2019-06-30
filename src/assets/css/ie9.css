@@ -89,6 +89,7 @@
 
 /* Menu */
 
-#menu .inner {
+#menu .inner,
+#login .inner {
   margin: 0 auto;
 }

@@ -39,6 +39,7 @@
 
 /* Menu */
 
-#menu {
+#menu,
+#login {
   background: #242943;
 }

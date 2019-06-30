@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const Menu = ({ onToggleMenu }) => (
+const Menu = ({ onToggleMenu, onToggleMenuToLogin }) => (
   <nav id="menu">
     <div className="inner">
       <ul className="links">
@@ -11,6 +11,11 @@ const Menu = ({ onToggleMenu }) => (
           <Link onClick={onToggleMenu} to="/">
             Home
           </Link>
+        </li>
+        <li>
+          <a onClick={onToggleMenuToLogin} href="javascript:;">
+            Docs
+          </a>
         </li>
         {/* <li>
           <Link onClick={onToggleMenu} to="/landing">
@@ -49,6 +54,7 @@ const Menu = ({ onToggleMenu }) => (
 
 Menu.propTypes = {
   onToggleMenu: PropTypes.func.isRequired,
+  onToggleMenuToLogin: PropTypes.func.isRequired,
 };
 
 export default Menu;
