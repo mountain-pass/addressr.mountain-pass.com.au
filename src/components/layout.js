@@ -1,25 +1,20 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import '../assets/scss/main.scss';
+import { getProfile } from '../utils/auth';
 import Contact from './Contact';
 import Footer from './Footer';
 import Header from './Header';
-import Login from './Login';
 import Menu from './Menu';
-
-const MyContext = React.createContext();
 
 class Layout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isMenuVisible: false,
-      isLoginVisible: false,
       loading: 'is-loading',
     };
     this.handleToggleMenu = this.handleToggleMenu.bind(this);
-    this.handleToggleLogin = this.handleToggleLogin.bind(this);
-    this.handleToggleMenuToLogin = this.handleToggleMenuToLogin.bind(this);
   }
 
   componentDidMount() {
@@ -40,22 +35,11 @@ class Layout extends React.Component {
     }));
   }
 
-  handleToggleMenuToLogin() {
-    this.setState({
-      isMenuVisible: false,
-      isLoginVisible: true,
-    });
-  }
-
-  handleToggleLogin() {
-    this.setState(prevState => ({
-      isLoginVisible: !prevState.isLoginVisible,
-    }));
-  }
-
   render() {
-    const { children } = this.props;
+    const { children, basicFooter } = this.props;
     const { loading, isMenuVisible, isLoginVisible } = this.state;
+    const user = getProfile();
+    console.log({ basicFooter });
     return (
       <div
         className={`body ${loading} ${isMenuVisible ? 'is-menu-visible' : ''} ${
@@ -64,17 +48,12 @@ class Layout extends React.Component {
       >
         <div id="wrapper">
           <Header onToggleMenu={this.handleToggleMenu} />
-          <MyContext.Provider value={{ onToggleLogin: this.handleToggleLogin }}>
-            {children}
-          </MyContext.Provider>
-          <Contact />
+
+          {children}
+          {basicFooter === true ? '' : <Contact user={user} />}
           <Footer />
         </div>
-        <Menu
-          onToggleMenu={this.handleToggleMenu}
-          onToggleMenuToLogin={this.handleToggleMenuToLogin}
-        />
-        <Login onToggleLogin={this.handleToggleLogin} />
+        <Menu onToggleMenu={this.handleToggleMenu} user={user} />
       </div>
     );
   }
@@ -85,6 +64,11 @@ Layout.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
+  basicFooter: PropTypes.bool,
+};
+
+Layout.defaultProps = {
+  basicFooter: false,
 };
 
 export default Layout;

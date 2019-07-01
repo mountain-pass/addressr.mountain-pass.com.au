@@ -13,3 +13,4 @@ yarn.lock
 deploy/.terraform
 deploy/plan
 deploy/generated*
+.env.development

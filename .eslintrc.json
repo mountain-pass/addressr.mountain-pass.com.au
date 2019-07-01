@@ -13,7 +13,8 @@
   "globals": {
     "document": true,
     "window": true,
-    "Image": true
+    "Image": true,
+    "localStorage": true
   },
   "settings": {
     "import/core-modules": ["react", "prop-types"]

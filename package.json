@@ -23,6 +23,8 @@
     "lint": "node_modules/.bin/eslint src --fix"
   },
   "devDependencies": {
+    "@reach/router": "^1.2.1",
+    "auth0-js": "^9.11.1",
     "eslint": "^5.7.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^2.9.0",
