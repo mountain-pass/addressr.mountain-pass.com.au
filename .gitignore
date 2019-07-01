@@ -14,3 +14,4 @@ deploy/.terraform
 deploy/plan
 deploy/generated*
 .env.development
+.env.production

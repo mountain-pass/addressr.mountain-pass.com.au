@@ -16,6 +16,7 @@
     "requirements-check": "./scripts/check-version.js",
     "build": "gatsby build",
     "dev": "gatsby develop",
+    "start": "gatsby serve",
     "format": "prettier --write '**/*.js'",
     "npm-check": "npm-check --skip-unused",
     "npm-check:interactive": "npm-check --skip-unused -u ",

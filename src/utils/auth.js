@@ -3,6 +3,11 @@ import { navigate } from 'gatsby';
 
 const isBrowser = typeof window !== 'undefined';
 
+console.log('AUTH0_DOMAIN', process.env.AUTH0_DOMAIN);
+console.log('AUTH0_CLIENTID', process.env.AUTH0_CLIENTID);
+console.log('AUTH0_CALLBACK', process.env.AUTH0_CALLBACK);
+console.log('HUH?');
+
 const auth = isBrowser
   ? new auth0.WebAuth({
       domain: process.env.AUTH0_DOMAIN,
