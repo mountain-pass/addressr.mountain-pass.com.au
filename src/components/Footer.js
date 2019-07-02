@@ -1,8 +1,40 @@
+import { Link } from 'gatsby';
 import React from 'react';
 
 const Footer = () => (
   <footer id="footer">
     <div className="inner">
+      <div className="grid-wrapper">
+        <div className="col-3">
+          <ul className="links">
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/pricing">Pricing</Link>
+            </li>
+            <li>
+              <Link to="/pricing">Sign up</Link>
+            </li>
+          </ul>
+        </div>
+        <div className="col-3">
+          <ul className="links">
+            <li>
+              <Link to="/r/docs">Docs</Link>
+            </li>
+            <li>
+              <Link to="/r/downloads">Downloads</Link>
+            </li>
+            <li>
+              <Link to="/r/community-support">Community Support</Link>
+            </li>
+            <li>
+              <Link to="/r/enterprise-support">Enterprise Support</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
       {/* <ul className="icons">
         <li>
           <a href="#" className="icon alt fa-twitter">
