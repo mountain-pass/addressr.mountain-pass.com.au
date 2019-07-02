@@ -40,7 +40,8 @@ class Layout extends React.Component {
     const { children } = this.props;
     const { loading, isMenuVisible } = this.state;
     const isRestrictedPage =
-      window != undefined && window.location.pathname.startsWith('/r/');
+      typeof window !== 'undefined' &&
+      window.location.pathname.startsWith('/r/');
     if (isRestrictedPage && !isAuthenticated()) {
       login();
       return (
