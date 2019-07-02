@@ -5,6 +5,56 @@ import React from 'react';
 import { login, logout } from '../utils/auth';
 
 const Menu = ({ onToggleMenu, user }) => {
+  var acc = '';
+  if (user !== undefined) {
+    acc = (
+      <li>
+        <Link onClick={onToggleMenu} to="/r/account">
+          <span>
+            <img
+              src={user.picture}
+              alt="user"
+              style={{
+                width: '2em',
+                marginRight: '1em',
+                borderRadius: '100%',
+                verticalAlign: 'middle',
+              }}
+            />
+          </span>
+          <span>Account</span>
+        </Link>
+      </li>
+    );
+  }
+  const loginout =
+    user === undefined ? (
+      <li>
+        <a
+          href="#login"
+          className="button fit"
+          onClick={e => {
+            login();
+            e.preventDefault();
+          }}
+        >
+          Log In
+        </a>
+      </li>
+    ) : (
+      <li>
+        <a
+          href="#logout"
+          className="button fit"
+          onClick={e => {
+            logout();
+            e.preventDefault();
+          }}
+        >
+          Log Out
+        </a>
+      </li>
+    );
   return (
     <nav id="menu">
       <div className="inner">
@@ -15,47 +65,21 @@ const Menu = ({ onToggleMenu, user }) => {
             </Link>
           </li>
           <li>
-            <Link onClick={onToggleMenu} to="/docs">
+            <Link onClick={onToggleMenu} to="/pricing">
+              Pricing
+            </Link>
+          </li>
+          <li>
+            <Link onClick={onToggleMenu} to="/r/docs">
               Docs
             </Link>
           </li>
-          {user === undefined ? (
-            ''
-          ) : (
-            <li>
-              <Link onClick={onToggleMenu} to="/account">
-                <span>
-                  <img
-                    src={user.picture}
-                    alt="user"
-                    style={{
-                      width: '2em',
-                      marginRight: '1em',
-                      borderRadius: '100%',
-                      verticalAlign: 'middle',
-                    }}
-                  />
-                </span>
-                <a style={{ fontSize: '50%' }}>{user.name}</a>
-              </Link>
-            </li>
-          )}
-
-          {/* <li>
-          <Link onClick={onToggleMenu} to="/landing">
-            Landing
-          </Link>
-        </li>
-        <li>
-          <Link onClick={onToggleMenu} to="/generic">
-            Generic
-          </Link>
-        </li>
-        <li>
-          <Link onClick={onToggleMenu} to="/elements">
-            Elements
-          </Link>
-        </li> */}
+          <li>
+            <Link onClick={onToggleMenu} to="/r/downloads">
+              Downloads
+            </Link>
+          </li>
+          {acc}
         </ul>
         <ul className="actions vertical">
           {/* 
@@ -73,33 +97,7 @@ const Menu = ({ onToggleMenu, user }) => {
             </a>
           </li> */}
 
-          {user === undefined ? (
-            <li>
-              <a
-                href="#login"
-                className="button fit"
-                onClick={e => {
-                  login();
-                  e.preventDefault();
-                }}
-              >
-                Log In
-              </a>
-            </li>
-          ) : (
-            <li>
-              <a
-                href="#logout"
-                className="button fit"
-                onClick={e => {
-                  logout();
-                  e.preventDefault();
-                }}
-              >
-                Log Out
-              </a>
-            </li>
-          )}
+          {loginout}
         </ul>
       </div>
       <a className="close" onClick={onToggleMenu} href="javascript:;">

@@ -125,7 +125,7 @@ const HomeIndex = () => {
             </p>
             <ul className="actions">
               <li>
-                <Link to="#contact" className="button next scrolly">
+                <Link to="/signup" className="button next">
                   Get Started Free
                 </Link>
               </li>

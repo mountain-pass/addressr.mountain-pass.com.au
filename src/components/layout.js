@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import Helmet from 'react-helmet';
 import '../assets/scss/main.scss';
-import { getProfile } from '../utils/auth';
+import { getProfile, isAuthenticated, login } from '../utils/auth';
 import Contact from './Contact';
 import Footer from './Footer';
 import Header from './Header';
@@ -36,26 +37,56 @@ class Layout extends React.Component {
   }
 
   render() {
-    const { children, basicFooter } = this.props;
-    const { loading, isMenuVisible, isLoginVisible } = this.state;
-    const user = getProfile();
-    console.log({ basicFooter });
-    return (
-      <div
-        className={`body ${loading} ${isMenuVisible ? 'is-menu-visible' : ''} ${
-          isLoginVisible ? 'is-login-visible' : ''
-        }`}
-      >
-        <div id="wrapper">
-          <Header onToggleMenu={this.handleToggleMenu} />
+    const { children } = this.props;
+    const { loading, isMenuVisible } = this.state;
+    const isRestrictedPage =
+      window != undefined && window.location.pathname.startsWith('/r/');
+    if (isRestrictedPage && !isAuthenticated()) {
+      login();
+      return (
+        <div
+          className={`body ${loading} ${
+            isMenuVisible ? 'is-menu-visible' : ''
+          }`}
+        >
+          <div id="wrapper">
+            <Header onToggleMenu={this.handleToggleMenu} />
+            <Helmet>
+              <title>Addressr by Mountain Pass</title>
+              <meta name="description" content="Addressr by Mountain Pass" />
+            </Helmet>
 
-          {children}
-          {basicFooter === true ? '' : <Contact user={user} />}
-          <Footer />
+            <div id="main" className="alt">
+              <section id="one">
+                <div className="inner">
+                  <p>Redirecting to login...</p>
+                  {/* TODO: Add spinner */}
+                </div>
+              </section>
+            </div>
+            <Footer />
+          </div>
+          <Menu onToggleMenu={this.handleToggleMenu} />
         </div>
-        <Menu onToggleMenu={this.handleToggleMenu} user={user} />
-      </div>
-    );
+      );
+    } else {
+      const user = getProfile();
+      return (
+        <div
+          className={`body ${loading} ${
+            isMenuVisible ? 'is-menu-visible' : ''
+          } `}
+        >
+          <div id="wrapper">
+            <Header onToggleMenu={this.handleToggleMenu} />
+            {children}
+            <Contact user={user} />
+            <Footer />
+          </div>
+          <Menu onToggleMenu={this.handleToggleMenu} user={user} />
+        </div>
+      );
+    }
   }
 }
 
@@ -64,11 +95,6 @@ Layout.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
-  basicFooter: PropTypes.bool,
-};
-
-Layout.defaultProps = {
-  basicFooter: false,
 };
 
 export default Layout;

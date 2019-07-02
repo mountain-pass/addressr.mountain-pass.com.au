@@ -3,11 +3,6 @@ import { navigate } from 'gatsby';
 
 const isBrowser = typeof window !== 'undefined';
 
-console.log('AUTH0_DOMAIN', process.env.AUTH0_DOMAIN);
-console.log('AUTH0_CLIENTID', process.env.AUTH0_CLIENTID);
-console.log('AUTH0_CALLBACK', process.env.AUTH0_CALLBACK);
-console.log('HUH?');
-
 const auth = isBrowser
   ? new auth0.WebAuth({
       domain: process.env.AUTH0_DOMAIN,
@@ -39,7 +34,7 @@ export const login = () => {
     return;
   }
   localStorage.setItem('loginLocation', window.location.pathname);
-  auth.authorize();
+  auth.authorize({ redirectUri: process.env.AUTH0_CALLBACK });
 };
 
 export const signup = () => {
@@ -62,6 +57,9 @@ const setSession = (cb = () => {}) => (err, authResult) => {
     tokens.idToken = authResult.idToken;
     tokens.expiresAt = expiresAt;
     user = authResult.idTokenPayload;
+    console.log('user', user);
+    console.log('Setting to Logged In');
+
     localStorage.setItem('isLoggedIn', true);
     const dest = localStorage.getItem('loginLocation');
     localStorage.setItem('loginLocation', '/');
@@ -89,5 +87,6 @@ export const getProfile = () => {
 
 export const logout = () => {
   localStorage.setItem('isLoggedIn', false);
-  auth.logout();
+  console.log('process.env.AUTH0_LOGGED_OUT', process.env.AUTH0_LOGGED_OUT);
+  auth.logout({ returnTo: process.env.AUTH0_LOGGED_OUT });
 };
