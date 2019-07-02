@@ -15,7 +15,7 @@ module.exports = {
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icon: 'src/assets/images/website-icon.png', // This path is relative to the root of the site.
+        icon: 'src/assets/images/addressr-square.png', // This path is relative to the root of the site.
       },
     },
     'gatsby-plugin-sass',
@@ -34,23 +34,23 @@ module.exports = {
         exclude: [],
       },
     },
-    {
-      resolve: `gatsby-plugin-favicon`,
-      options: {
-        logo: './src/assets/images/addressr-square.png',
-        injectHTML: true,
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: false,
-          favicons: true,
-          firefox: true,
-          twitter: false,
-          yandex: false,
-          windows: false,
-        },
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-favicon`,
+    //   options: {
+    //     logo: './src/assets/images/addressr-square.png',
+    //     injectHTML: true,
+    //     icons: {
+    //       android: true,
+    //       appleIcon: true,
+    //       appleStartup: true,
+    //       coast: false,
+    //       favicons: true,
+    //       firefox: true,
+    //       twitter: false,
+    //       yandex: false,
+    //       windows: false,
+    //     },
+    //   },
+    // },
   ],
 };
