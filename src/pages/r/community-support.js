@@ -1,15 +1,15 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import Layout from '../components/layout';
+import Layout from '../../components/layout';
 
-const SignUp = () => {
+const Docs = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Sign Up - Addressr by Mountain Pass</title>
+        <title>Community Support - Addressr by Mountain Pass</title>
         <meta
           name="description"
-          content="Sign Up for Addressr by Mountain Pass"
+          content="Community Support for Addressr by Mountain Pass"
         />
       </Helmet>
 
@@ -17,7 +17,7 @@ const SignUp = () => {
         <section id="one">
           <div className="inner">
             <header className="major">
-              <h1>Sign Up</h1>
+              <h1>Community Support</h1>
             </header>
             <p>Comming soon...</p>
           </div>
@@ -27,4 +27,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Docs;

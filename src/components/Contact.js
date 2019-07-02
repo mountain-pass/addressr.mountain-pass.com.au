@@ -60,13 +60,13 @@ const Contact = props => {
               </a>
             </div>
           </section>
-          <section>
+          {/* <section>
             <div className="contact-method">
               <span className="icon alt fa-phone" />
               <h3>Phone</h3>
               <a href="tel:+61 402 756 685">+61 402 756 685</a>
             </div>
-          </section>
+          </section> */}
           <section>
             <div className="contact-method">
               <span className="icon alt fa-home" />

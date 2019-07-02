@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
 import Layout from '../components/layout';
@@ -19,7 +20,83 @@ const Pricing = () => {
             <header className="major">
               <h1>Pricing</h1>
             </header>
-            <p>Comming soon...</p>
+            <div className="grid-wrapper">
+              <div className="col-2 price-styles" style={{ display: 'block;' }}>
+                &nbsp;
+              </div>
+              <div className="col-4 price-styles" style={{ display: 'block;' }}>
+                <div className="pricing__item price-four-el" data-hover="">
+                  <h3 className="pricing__title mbr-title-font mbr-primary-color">
+                    Startup
+                  </h3>
+                  <p className="pricing__sentence">100% Free. FORVEVER</p>
+                  <div className="pricing__price mbr-title-font">
+                    <span className="pricing__currency">$</span>
+                    <span>0</span>
+                  </div>
+                  <div>
+                    <ul className="pricing__feature-list mbr-text-font">
+                      <li className="pricing__feature">Unlimited API Calls</li>
+                      <li className="pricing__feature">Docker Image</li>
+                      <li className="pricing__feature">
+                        Run on-prem or in your own cloud
+                      </li>
+                      <li className="pricing__feature">
+                        Automatically updated data source
+                      </li>
+                      <li className="pricing__feature">Community support</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <Link
+                      to="/signup"
+                      className="button btn special mbr-title-font btn-primary"
+                    >
+                      Get Started Free
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-4 price-styles" style={{ display: 'block;' }}>
+                <div className="pricing__item pricing__item__popular price-four-el">
+                  <h3 className="pricing__title mbr-title-font mbr-primary-color">
+                    ENTERPRISE
+                  </h3>
+                  <p className="pricing__sentence">Mission Critical Support</p>
+                  <div className="pricing__price mbr-title-font">
+                    <span className="pricing__currency">$</span>
+                    <span>POA</span>
+                  </div>
+                  <div>
+                    <ul className="pricing__feature-list mbr-text-font">
+                      <li className="pricing__feature">Unlimited API Calls</li>
+                      <li className="pricing__feature">Docker Image</li>
+                      <li className="pricing__feature">
+                        Run on-prem or in your own cloud
+                      </li>
+                      <li className="pricing__feature">
+                        Automatically updated data source
+                      </li>
+                      <li className="pricing__feature">
+                        MISSION CRITICAL SUPPORT
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <Link
+                      to="/enterprise-price-request"
+                      className="button btn special mbr-title-font btn-primary"
+                    >
+                      Contact Us
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className="col-2 price-styles" style={{ display: 'block;' }}>
+                &nbsp;
+              </div>
+            </div>
           </div>
         </section>
       </div>

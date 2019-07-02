@@ -79,26 +79,19 @@ const Menu = ({ onToggleMenu, user }) => {
               Downloads
             </Link>
           </li>
+          <li>
+            <Link onClick={onToggleMenu} to="/r/community-support">
+              Community Support
+            </Link>
+          </li>
+          <li>
+            <Link onClick={onToggleMenu} to="/r/enterprise-support">
+              Enterprise Support
+            </Link>
+          </li>
           {acc}
         </ul>
-        <ul className="actions vertical">
-          {/* 
-          https://auth0.com/docs/libraries/auth0js/v9#signup
-          <li>
-            <a
-              href="#"
-              className="button special fit"
-              onClick={e => {
-                signup();
-                e.preventDefault();
-              }}
-            >
-              Get Started
-            </a>
-          </li> */}
-
-          {loginout}
-        </ul>
+        <ul className="actions vertical">{loginout}</ul>
       </div>
       <a className="close" onClick={onToggleMenu} href="javascript:;">
         Close
