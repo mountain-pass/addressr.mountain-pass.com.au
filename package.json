@@ -15,6 +15,7 @@
     "postinstall": "npm run requirements-check",
     "requirements-check": "./scripts/check-version.js",
     "build": "gatsby build",
+    "postbuild": "if [ ! -z \"${CI}\" ]; then ./scripts/purge-cache.sh; fi",
     "dev": "gatsby develop",
     "start": "gatsby serve",
     "format": "prettier --write '**/*.js'",
