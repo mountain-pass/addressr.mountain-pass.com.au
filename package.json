@@ -54,6 +54,7 @@
     "prettier": "^1.14.2",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
+    "react-driftjs": "^1.1.6",
     "react-helmet": "^5.2.0",
     "semver": "^6.1.1"
   },
