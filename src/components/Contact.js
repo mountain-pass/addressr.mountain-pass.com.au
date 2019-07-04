@@ -8,10 +8,11 @@ import { setProfile } from '../utils/auth';
 class Contact extends React.Component {
   constructor(props) {
     super(props);
+    const { user } = this.props;
     this.state = {
-      name: '',
+      name: user ? user.nickname : '',
       nameValidation: undefined,
-      email: '',
+      email: user ? user.name : '',
       emailValidation: undefined,
       message: '',
       messageValidation: undefined,
@@ -26,10 +27,12 @@ class Contact extends React.Component {
   }
 
   async reset() {
+    const { user } = this.props;
+
     await this.setState({
-      name: '',
+      name: user ? user.nickname : '',
       nameValidation: undefined,
-      email: '',
+      email: user ? user.name : '',
       emailValidation: undefined,
       message: '',
       messageValidation: undefined,
@@ -102,7 +105,10 @@ class Contact extends React.Component {
       return;
     }
     this.setState({ sending: true, sent: false });
-    setProfile(name, email);
+    const { user } = this.props;
+    if (user === undefined || user.iss === undefined) {
+      setProfile(name, email);
+    }
     return fetch(
       'https://hooks.slack.com/services/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',
       {
@@ -146,7 +152,6 @@ class Contact extends React.Component {
   }
 
   render() {
-    const { user } = this.props;
     const {
       sending,
       name,
@@ -163,47 +168,29 @@ class Contact extends React.Component {
         <div className="inner">
           <section>
             <form method="post" onSubmit={this.handleSubmit}>
-              {user === undefined ? (
-                <>
-                  <div className="field half first">
-                    <label htmlFor="name">Name</label>
-                    <input
-                      type="text"
-                      name="name"
-                      id="name"
-                      value={name}
-                      onChange={this.handleChange}
-                    />
-                    <div className="error">{nameValidation}</div>
-                  </div>
-                  <div className="field half">
-                    <label htmlFor="email">Email / Phone</label>
-                    <input
-                      type="text"
-                      name="email"
-                      id="email"
-                      value={email}
-                      onChange={this.handleChange}
-                    />
-                    <div className="error">{emailValidation}</div>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <input
-                    type="hidden"
-                    value={user.nickname}
-                    name="name"
-                    id="name"
-                  />
-                  <input
-                    type="hidden"
-                    value={user.email}
-                    name="email"
-                    id="email"
-                  />
-                </>
-              )}
+              <div className="field half first">
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  value={name}
+                  onChange={this.handleChange}
+                />
+                <div className="error">{nameValidation}</div>
+              </div>
+              <div className="field half">
+                <label htmlFor="email">Email / Phone</label>
+                <input
+                  type="text"
+                  name="email"
+                  id="email"
+                  value={email}
+                  onChange={this.handleChange}
+                />
+                <div className="error">{emailValidation}</div>
+              </div>
+
               <div className="field">
                 <label htmlFor="message">Message</label>
                 <textarea
@@ -312,7 +299,8 @@ class Contact extends React.Component {
 Contact.propTypes = {
   user: PropTypes.shape({
     nickname: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    iss: PropTypes.string,
   }),
 };
 
