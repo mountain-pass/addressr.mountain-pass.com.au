@@ -339,7 +339,9 @@ class SignUp extends React.Component {
                     <span role="img" aria-label="Thumbs up">
                       👍
                     </span>
-                    <p>Well reach out to you shorlty to get you started</p>
+                    <p>
+                      We&apos;ll reach out to you shorlty to get you started
+                    </p>
                   </div>
                 ) : (
                   ''
