@@ -107,7 +107,7 @@ class Contact extends React.Component {
     this.setState({ sending: true, sent: false });
     const { user } = this.props;
     if (user === undefined || user.iss === undefined) {
-      setProfile(name, email);
+      setProfile({ nickname: name, name: email });
     }
     return fetch(
       'https://hooks.slack.com/services/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',
