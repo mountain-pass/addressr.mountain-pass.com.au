@@ -72,7 +72,9 @@ const HomeIndex = () => {
           <article style={{ backgroundImage: `url(${pic03})` }}>
             <header className="major">
               <h3>Real-time Address Validation</h3>
-              <p>Add address autocomplete to your forms</p>
+              <p>
+                Add address autocomplete, search and validation to your forms
+              </p>
             </header>
             {/* <Link to="/landing" className="link primary" /> */}
           </article>

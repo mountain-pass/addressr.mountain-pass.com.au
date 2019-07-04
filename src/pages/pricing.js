@@ -36,6 +36,9 @@ const Pricing = () => {
                   </div>
                   <div>
                     <ul className="pricing__feature-list mbr-text-font">
+                      <li className="pricing__feature">Address Validation</li>
+                      <li className="pricing__feature">Address Autocomplete</li>
+                      <li className="pricing__feature">Address Search</li>
                       <li className="pricing__feature">Unlimited API Calls</li>
                       <li className="pricing__feature">Docker Image</li>
                       <li className="pricing__feature">
@@ -70,6 +73,9 @@ const Pricing = () => {
                   </div>
                   <div>
                     <ul className="pricing__feature-list mbr-text-font">
+                      <li className="pricing__feature">Address Validation</li>
+                      <li className="pricing__feature">Address Autocomplete</li>
+                      <li className="pricing__feature">Address Search</li>
                       <li className="pricing__feature">Unlimited API Calls</li>
                       <li className="pricing__feature">Docker Image</li>
                       <li className="pricing__feature">
@@ -78,7 +84,10 @@ const Pricing = () => {
                       <li className="pricing__feature">
                         Automatically updated data source
                       </li>
-                      <li className="pricing__feature">
+                      <li
+                        className="pricing__feature"
+                        style={{ fontWeight: '600' }}
+                      >
                         MISSION CRITICAL SUPPORT
                       </li>
                     </ul>
