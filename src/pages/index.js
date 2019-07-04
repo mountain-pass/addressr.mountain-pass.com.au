@@ -25,7 +25,25 @@ const HomeIndex = () => {
         ]}
       />
 
-      <Banner />
+      <Banner className="major">
+        <header className="major">
+          <h1>Addressr</h1>
+        </header>
+        <div className="content">
+          <p>
+            Because address validation&nbsp;
+            <br />
+            Shouldn&apos;t cost the world
+          </p>
+          <ul className="actions">
+            <li>
+              <Link to="/signup" className="button next">
+                Get Started Free
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </Banner>
 
       <div id="main">
         <section id="one" className="tiles">

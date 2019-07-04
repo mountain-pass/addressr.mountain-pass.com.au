@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Helmet from 'react-helmet';
+import Banner from '../components/Banner';
 import Layout from '../components/layout';
 import { setProfile } from '../utils/auth';
 
@@ -224,18 +225,23 @@ class SignUp extends React.Component {
           />
         </Helmet>
 
+        <Banner>
+          <header className="major">
+            <h1>Sign Up</h1>
+          </header>
+        </Banner>
+
         <div id="main" className="alt">
           <section id="one">
             <div className="inner">
-              <header className="major">
-                <h1>Sign Up</h1>
-                <h2>Thanks for your interest! </h2>
-              </header>
               <p>
                 Addressr is currently in{' '}
                 <span className="status amber">Closed Beta</span>
               </p>
-              <p>Reserve your spot on the waitlist by applying below.</p>
+              <p>
+                <strong>Reserve</strong> your spot on the waitlist by applying
+                below.
+              </p>
               <form method="post" onSubmit={this.handleSubmit}>
                 <div className="first field half">
                   <label htmlFor="name">Name</label>

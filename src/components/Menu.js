@@ -29,18 +29,29 @@ const Menu = ({ onToggleMenu, user }) => {
   }
   const loginout =
     user === undefined ? (
-      <li>
-        <a
-          href="#login"
-          className="button fit"
-          onClick={e => {
-            login();
-            e.preventDefault();
-          }}
-        >
-          Log In
-        </a>
-      </li>
+      <>
+        <li>
+          <a
+            href="#login"
+            className="button fit"
+            onClick={e => {
+              login();
+              e.preventDefault();
+            }}
+          >
+            Log In
+          </a>
+        </li>
+        <li>
+          <Link
+            to="/signup"
+            className="button fit special"
+            onClick={onToggleMenu}
+          >
+            Signup
+          </Link>
+        </li>
+      </>
     ) : (
       <li>
         <a
@@ -69,29 +80,44 @@ const Menu = ({ onToggleMenu, user }) => {
               Pricing
             </Link>
           </li>
+          {acc}
+        </ul>
+        <ul className="actions vertical">{loginout}</ul>
+        <ul className={user === undefined ? 'links light' : 'links'}>
           <li>
-            <Link onClick={onToggleMenu} to="/r/docs">
+            <Link
+              onClick={onToggleMenu}
+              to={user === undefined ? '/signup' : '/r/docs'}
+            >
               Docs
             </Link>
           </li>
           <li>
-            <Link onClick={onToggleMenu} to="/r/downloads">
+            <Link
+              onClick={onToggleMenu}
+              to={user === undefined ? '/signup' : '/r/downloads'}
+            >
               Downloads
             </Link>
           </li>
           <li>
-            <Link onClick={onToggleMenu} to="/r/community-support">
+            <Link
+              onClick={onToggleMenu}
+              to={user === undefined ? '/signup' : '/r/community-support'}
+            >
               Community Support
             </Link>
           </li>
           <li>
-            <Link onClick={onToggleMenu} to="/r/enterprise-support">
+            <Link
+              onClick={onToggleMenu}
+              to={user === undefined ? '/signup' : '/r/enterprise-support'}
+            >
               Enterprise Support
             </Link>
           </li>
           {acc}
-        </ul>
-        <ul className="actions vertical">{loginout}</ul>
+        </ul>{' '}
       </div>
       <a className="close" onClick={onToggleMenu} href="javascript:;">
         Close

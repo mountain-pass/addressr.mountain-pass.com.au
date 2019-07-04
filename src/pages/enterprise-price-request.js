@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Helmet from 'react-helmet';
+import Banner from '../components/Banner';
 import Layout from '../components/layout';
 import { setProfile } from '../utils/auth';
 
@@ -226,13 +227,20 @@ class EntPriceRequest extends React.Component {
           />
         </Helmet>
 
+        <Banner>
+          <header className="major">
+            <h1>Enterprise Price Request</h1>
+          </header>
+        </Banner>
+
         <div id="main" className="alt">
           <section id="one">
             <div className="inner">
-              <header className="major">
-                <h1>Enterprise Price Request</h1>
-                <h2>Thanks for your interest! </h2>
-              </header>
+              <p>Thanks for your interest!</p>
+              <p>
+                Please answer a few questions and we&pos;ll get back to you with
+                a quote ASAP.
+              </p>
               <form method="post" onSubmit={this.handleSubmit}>
                 <div className="first field half">
                   <label htmlFor="name">Name</label>

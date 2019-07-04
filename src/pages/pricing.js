@@ -1,6 +1,7 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
+import Banner from '../components/Banner';
 import Layout from '../components/layout';
 
 const Pricing = () => {
@@ -14,12 +15,15 @@ const Pricing = () => {
         />
       </Helmet>
 
+      <Banner>
+        <header className="major">
+          <h1>Pricing</h1>
+        </header>
+      </Banner>
+
       <div id="main" className="alt">
         <section id="one">
           <div className="inner">
-            <header className="major">
-              <h1>Pricing</h1>
-            </header>
             <div className="grid-wrapper">
               <div className="col-2 price-styles" style={{ display: 'block;' }}>
                 &nbsp;

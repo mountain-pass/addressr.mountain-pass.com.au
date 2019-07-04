@@ -1,30 +1,25 @@
-import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
 import React from 'react';
 
-const Banner = () => {
+const Banner = props => {
+  const { children, className } = props;
   return (
-    <section id="banner" className="major">
-      <div className="inner">
-        <header className="major">
-          <h1>Addressr</h1>
-        </header>
-        <div className="content">
-          <p>
-            Because address validation&nbsp;
-            <br />
-            Shouldn&apos;t cost the world
-          </p>
-          <ul className="actions">
-            <li>
-              <Link to="/signup" className="button next">
-                Get Started Free
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <section id="banner" className={className}>
+      <div className="inner">{children}</div>
     </section>
   );
+};
+
+Banner.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+};
+
+Banner.defaultProps = {
+  className: undefined,
 };
 
 export default Banner;
