@@ -24,56 +24,59 @@ class Layout extends React.Component {
       this.setState({ loading: '' });
     }, 100);
 
-    (function() {
-      console.log('inspectletjs');
-      if (
-        typeof window !== 'undefined' &&
-        document.location.hostname == 'windyroad.com.au'
-      ) {
-        const insp_ab_loader = true; // set this boolean to false to disable the A/B testing loader
-        window.__insp = window.__insp || [];
-        window.__insp.push(['wid', 1654706623]);
-        const ldinsp = function() {
-          if (typeof window.__inspld !== 'undefined') return;
-          window.__inspld = 1;
-          const insp = document.createElement('script');
-          insp.type = 'text/javascript';
-          insp.async = true;
-          insp.id = 'inspsync';
-          insp.src = `${
-            document.location.protocol == 'https:' ? 'https' : 'http'
-          }://cdn.inspectlet.com/inspectlet.js?wid=1654706623&r=${Math.floor(
-            new Date().getTime() / 3600000,
-          )}`;
-          const x = document.getElementsByTagName('script')[0];
-          x.parentNode.insertBefore(insp, x);
-          if (typeof insp_ab_loader !== 'undefined' && insp_ab_loader) {
-            const adlt = function() {
-              const e = document.getElementById('insp_abl');
-              if (e) {
-                e.parentNode.removeChild(e);
-                window.__insp.push(['ab_timeout']);
-              }
-            };
-            const adlc = 'body{ visibility: hidden !important; }';
-            const adln =
-              typeof window.insp_ab_loader_t !== 'undefined'
-                ? window.insp_ab_loader_t
-                : 1200;
-            insp.onerror = adlt;
-            const abti = setTimeout(adlt, adln);
-            window.__insp_abt = abti;
-            const abl = document.createElement('style');
-            abl.id = 'insp_abl';
-            abl.type = 'text/css';
-            if (abl.styleSheet) abl.styleSheet.cssText = adlc;
-            else abl.appendChild(document.createTextNode(adlc));
-            document.head.appendChild(abl);
-          }
-        };
-        setTimeout(ldinsp, 0);
+    window['_fs_debug'] = false;
+    window['_fs_host'] = 'fullstory.com';
+    window['_fs_org'] = 'MTD5F';
+    window['_fs_namespace'] = 'FS';
+    (function(m, n, e, t, l, o, g, y) {
+      if (e in m) {
+        if (m.console && m.console.log) {
+          m.console.log(
+            'FullStory namespace conflict. Please set window["_fs_namespace"].',
+          );
+        }
+        return;
       }
-    })();
+      g = m[e] = function(a, b, s) {
+        g.q ? g.q.push([a, b, s]) : g._api(a, b, s);
+      };
+      g.q = [];
+      o = n.createElement(t);
+      o.async = 1;
+      o.crossOrigin = 'anonymous';
+      o.src = 'https://' + window['_fs_host'] + '/s/fs.js';
+      y = n.getElementsByTagName(t)[0];
+      y.parentNode.insertBefore(o, y);
+      g.identify = function(i, v, s) {
+        g(l, { uid: i }, s);
+        if (v) g(l, v, s);
+      };
+      g.setUserVars = function(v, s) {
+        g(l, v, s);
+      };
+      g.event = function(i, v, s) {
+        g('event', { n: i, p: v }, s);
+      };
+      g.shutdown = function() {
+        g('rec', !1);
+      };
+      g.restart = function() {
+        g('rec', !0);
+      };
+      g.log = function(a, b) {
+        g('log', [a, b]);
+      };
+      g.consent = function(a) {
+        g('consent', !arguments.length || a);
+      };
+      g.identifyAccount = function(i, v) {
+        o = 'account';
+        v = v || {};
+        v.acctId = i;
+        g(o, v);
+      };
+      g.clearUserCookie = function() {};
+    })(window, document, window['_fs_namespace'], 'script', 'user');
   }
 
   componentWillUnmount() {

@@ -233,7 +233,7 @@ class SignUp extends React.Component {
               </header>
               <p>
                 Addressr is currently in{' '}
-                <div className="status amber">Closed Beta</div>
+                <span className="status amber">Closed Beta</span>
               </p>
               <p>Reserve your spot on the waitlist by applying below.</p>
               <form method="post" onSubmit={this.handleSubmit}>
