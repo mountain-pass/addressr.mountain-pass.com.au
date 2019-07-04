@@ -90,3 +90,7 @@ export const logout = () => {
   console.log('process.env.AUTH0_LOGGED_OUT', process.env.AUTH0_LOGGED_OUT);
   auth.logout({ returnTo: process.env.AUTH0_LOGGED_OUT });
 };
+
+export const setProfile = (nickname, name) => {
+  return (user = { nickname, name });
+};

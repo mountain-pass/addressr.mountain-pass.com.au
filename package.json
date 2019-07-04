@@ -6,7 +6,11 @@
   "engines": {
     "node": ">=11.14.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.19",
+    "@fortawesome/free-solid-svg-icons": "^5.9.0",
+    "@fortawesome/react-fontawesome": "^0.1.4"
+  },
   "keywords": [
     "gatsby"
   ],
@@ -26,6 +30,7 @@
   },
   "devDependencies": {
     "@reach/router": "^1.2.1",
+    "@slack/web-api": "^5.0.1",
     "auth0-js": "^9.11.1",
     "eslint": "^5.7.0",
     "eslint-config-airbnb": "^17.1.0",
@@ -40,6 +45,7 @@
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-standard": "^3.1.0",
+    "fetch": "^1.1.0",
     "gatsby": "^2.2.9",
     "gatsby-plugin-favicon": "^3.1.6",
     "gatsby-plugin-google-analytics": "^2.1.1",
@@ -49,6 +55,7 @@
     "gatsby-plugin-sass": "^2.0.11",
     "husky": "^1.1.2",
     "imagemin-lint-staged": "^0.4.0",
+    "ky": "^0.11.1",
     "lint-staged": "^7.3.0",
     "node-sass": "^4.11.0",
     "npm-check": "^5.9.0",
