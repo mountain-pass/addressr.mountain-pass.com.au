@@ -31,18 +31,22 @@
   padding: 100px 0;
 }
 
+.price-styles {
+  margin-bottom: 30px;
+}
+
 .popular {
   padding-top: 0 !important;
   margin-left: 15px;
   margin-right: 15px;
-  background: #222;
+  background: _palette(bg);
   height: 40px;
   line-height: 40px;
   position: absolute;
   left: 0px;
   right: 0px;
   top: -40px;
-  color: rgb(255, 255, 255);
+  color: _palette(fg);
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -54,10 +58,10 @@
   margin: 0;
   padding: 40px 40px 40px;
   text-align: left;
-  color: #000;
-  background: #fff;
+  color: _palette(bg);
+  background: _palette(fg);
   position: relative;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 10px _palette(border-bg);
   border: none;
   border-radius: 3px;
 }
@@ -67,9 +71,8 @@
 }
 
 .pricing__title {
-  font-size: 20px;
   margin: 0px 0px 10px;
-  color: #29d9c2;
+  color: _palette(accent1);
   letter-spacing: 2px;
   text-transform: uppercase;
   font-weight: 700;
@@ -79,26 +82,29 @@
   font-size: 65px;
   font-weight: 700;
   padding: 10px 0 20px;
-  color: #000;
+  color: _palette(bg);
   font-family: Montserrat;
+  text-align: center;
 }
 
 .pricing__currency {
   font-size: 25px;
   vertical-align: super;
-  color: #000;
+  color: _palette(bg);
+  margin-left: -0.7em;
 }
 
 .pricing__period {
   font-size: 15px;
-  color: #000;
+  color: _palette(bg);
   display: inline-block;
 }
 
 .pricing__sentence {
   padding: 0 0 0.5em;
   margin: 0;
-  color: #000;
+  color: _palette(bg);
+  text-align: center;
 }
 
 .pricing__feature-list {
@@ -106,7 +112,7 @@
   margin: 0;
   padding: 0 0 2.5em;
   list-style: none;
-  color: #666;
+  color: _palette(bg-alt);
 }
 
 .pricing__feature {
@@ -121,7 +127,7 @@
   position: absolute;
   width: 6px;
   height: 2px;
-  background: #000;
+  background: _palette(bg);
   opacity: 0.2;
   left: 0;
   top: 50%;
@@ -135,7 +141,7 @@
   bottom: 0px;
   left: 0px;
   right: 0px;
-  color: #fff;
+  color: _palette(fg);
 }
 
 .pricing .container {
@@ -186,7 +192,6 @@
     font-size: 50px;
   }
   .pricing__title {
-    font-size: 16px;
   }
   .pricing__item p {
     font-size: 12px;
@@ -217,12 +222,12 @@
 }
 
 .btn-primary {
-  color: #ffffff !important;
+  color: _palette(fg) !important;
 }
 
 .btn.btn-primary {
-  background-color: _palette(bg);
-  border-color: _palette(bg);
+  background-color: _palette(dk-accent1);
+  border-color: _palette(dk-accent1);
 }
 
 // a {
@@ -230,7 +235,7 @@
 // }
 
 .mbr-primary-color {
-  color: _palette(bg) !important;
+  color: _palette(dk-accent1) !important;
 }
 
 .mbr-title-font {

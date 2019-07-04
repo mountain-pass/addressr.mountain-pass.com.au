@@ -8,14 +8,14 @@
 
 #menu,
 #login {
-  @include vendor(
-    'transition',
-    (
-      'transform #{_duration(menu)} ease',
-      'opacity #{_duration(menu)} ease',
-      'visibility #{_duration(menu)}'
-    )
-  );
+  //   @include vendor(
+  //     'transition',
+  //     (
+  //       'transform #{_duration(menu)} ease',
+  //       'opacity #{_duration(menu)} ease',
+  //       'visibility #{_duration(menu)}'
+  //     )
+  //   );
   @include vendor('align-items', 'center');
   @include vendor('display', 'flex');
   @include vendor('justify-content', 'center');

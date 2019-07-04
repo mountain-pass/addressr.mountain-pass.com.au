@@ -27,9 +27,9 @@ const Pricing = () => {
               <div className="col-4 price-styles" style={{ display: 'block;' }}>
                 <div className="pricing__item price-four-el" data-hover="">
                   <h3 className="pricing__title mbr-title-font mbr-primary-color">
-                    Startup
+                    FREE
                   </h3>
-                  <p className="pricing__sentence">100% Free. FORVEVER</p>
+                  <p className="pricing__sentence">100% Free. FOREVER</p>
                   <div className="pricing__price mbr-title-font">
                     <span className="pricing__currency">$</span>
                     <span>0</span>
@@ -62,7 +62,7 @@ const Pricing = () => {
               </div>
 
               <div className="col-4 price-styles" style={{ display: 'block;' }}>
-                <div className="pricing__item pricing__item__popular price-four-el">
+                <div className="pricing__item price-four-el">
                   <h3 className="pricing__title mbr-title-font mbr-primary-color">
                     ENTERPRISE
                   </h3>
