@@ -17,7 +17,7 @@ const HomeIndex = () => {
   return (
     <Layout>
       <Helmet
-        title="Addressr by Mountain Pass"
+        title="Addressr by Mountain Pass - Free Australian Address Validation, Search and Autocomplete"
         meta={[
           {
             name: 'description',

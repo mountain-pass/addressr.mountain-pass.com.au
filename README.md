@@ -27,6 +27,7 @@ Here is an example of using the grid, for a 3 column layout:
 ## TODO
 
 - [x] not a SaaS
+- [ ] Check exists in Search
 - [ ] API docs
 - [ ] Screenshot and/or animation
 - [ ] AWS marketplace as sales channel
