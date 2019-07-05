@@ -3,8 +3,15 @@ module.exports = {
     title: 'Addressr',
     author: 'Mountain Pass',
     description: 'Australian Address Validation and Autocomplete',
+    siteUrl: `https://addressr.mountain-pass.com.au/`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: ['/callback'],
+      },
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-manifest`,

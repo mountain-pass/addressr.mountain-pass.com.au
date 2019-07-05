@@ -53,6 +53,7 @@
     "gatsby-plugin-offline": "^2.0.25",
     "gatsby-plugin-react-helmet": "^3.0.10",
     "gatsby-plugin-sass": "^2.0.11",
+    "gatsby-plugin-sitemap": "^2.2.1",
     "husky": "^1.1.2",
     "imagemin-lint-staged": "^0.4.0",
     "ky": "^0.11.1",
