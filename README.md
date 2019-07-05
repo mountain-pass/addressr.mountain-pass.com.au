@@ -26,10 +26,11 @@ Here is an example of using the grid, for a 3 column layout:
 
 ## TODO
 
-- [ ] Why Page
-- - [ ] How does it compare to google places API
+- [x] not a SaaS
+- [ ] API docs
 - [ ] Screenshot and/or animation
 - [ ] AWS marketplace as sales channel
+- [ ] Make each tile clickable
 - Pricing
 - - [x] 24/7 hours support AEST
 - - [x] instead of docker .. put “containerised”
@@ -39,5 +40,7 @@ Here is an example of using the grid, for a 3 column layout:
 
 ### Maybe
 
+- [ ] Why Page
+- - [ ] How does it compare to google places API
 - [ ] add sandbox with limited results
 - [ ] capability to "push" data into another system?

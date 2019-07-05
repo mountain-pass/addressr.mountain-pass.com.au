@@ -7,6 +7,8 @@ import pic03 from '../assets/images/pic03.jpg';
 import pic04 from '../assets/images/pic04.jpg';
 import pic05 from '../assets/images/pic05.jpg';
 import pic06 from '../assets/images/pic06.jpg';
+import pic10 from '../assets/images/pic10.jpg';
+import pic11 from '../assets/images/pic11.jpg';
 import Banner from '../components/Banner';
 import Layout from '../components/layout';
 import dataGovLogo from './Data-gov-au.jpg';
@@ -79,6 +81,21 @@ const HomeIndex = () => {
           </article>
           <article style={{ backgroundImage: `url(${pic02})` }}>
             <header className="major">
+              <h3>Not a SaaS</h3>
+              <p>We love SaaS, but only when we have control the cost.</p>
+              <p>
+                But SaaSes that charge by volume for an API that you need to
+                expose public, like on a sign up form? That scares us.{' '}
+                <strong style={{ color: 'black', fontWeight: '800' }}>
+                  Big time.
+                </strong>{' '}
+                That&apos;s why we created Addressr.
+              </p>
+            </header>
+            {/* <Link to="/landing" className="link primary" /> */}
+          </article>
+          <article style={{ backgroundImage: `url(${pic11})` }}>
+            <header className="major">
               <h3>Always Up-To-Date</h3>
               <p>
                 Addressr automatically updates with the latest data, so
@@ -91,7 +108,7 @@ const HomeIndex = () => {
             <header className="major">
               <h3>Real-time Address Validation</h3>
               <p>
-                Add address autocomplete, search and validation to your forms
+                Add address autocomplete, search and validation to your forms.
               </p>
             </header>
             {/* <Link to="/landing" className="link primary" /> */}
@@ -99,7 +116,7 @@ const HomeIndex = () => {
           <article style={{ backgroundImage: `url(${pic04})` }}>
             <header className="major">
               <h3>Easy To Use API</h3>
-              <p>Build your solution quickly, with our straightforward API</p>
+              <p>Build your solution quickly, with our straightforward API.</p>
             </header>
             {/* <Link to="/landing" className="link primary" /> */}
           </article>
@@ -108,7 +125,7 @@ const HomeIndex = () => {
               <h3>Run On Your Own Infrastructure</h3>
               <p>
                 On-premise or in the cloud, run Addressr on your own
-                infrastructure, so your have full control over costs
+                infrastructure, so your have full control over costs.
               </p>
             </header>
             {/* <Link to="/landing" className="link primary" /> */}
@@ -127,6 +144,10 @@ const HomeIndex = () => {
                 commercial support you can truly rely on.
               </p>
             </header>
+            {/* <Link to="/landing" className="link primary" /> */}
+          </article>
+          <article style={{ backgroundImage: `url(${pic10})` }}>
+            <header className="major" />
             {/* <Link to="/landing" className="link primary" /> */}
           </article>
         </section>
