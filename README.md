@@ -23,3 +23,21 @@ Here is an example of using the grid, for a 3 column layout:
     </div>
 </div>
 ```
+
+## TODO
+
+- [ ] Why Page
+- - [ ] How does it compare to google places API
+- [ ] Screenshot and/or animation
+- [ ] AWS marketplace as sales channel
+- Pricing
+- - [x] 24/7 hours support AEST
+- - [x] instead of docker .. put “containerised”
+- - [x] Manual or Automated data updates, just incase companies have issues connecting out
+- - [x] POA sounds aggressive . maybe “contact us”
+- - [x] Geo-location Address Search
+
+### Maybe
+
+- [ ] add sandbox with limited results
+- [ ] capability to "push" data into another system?

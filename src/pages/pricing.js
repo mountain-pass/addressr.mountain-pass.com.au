@@ -43,13 +43,16 @@ const Pricing = () => {
                       <li className="pricing__feature">Address Validation</li>
                       <li className="pricing__feature">Address Autocomplete</li>
                       <li className="pricing__feature">Address Search</li>
-                      <li className="pricing__feature">Unlimited API Calls</li>
-                      <li className="pricing__feature">Docker Image</li>
                       <li className="pricing__feature">
-                        Run on-prem or in your own cloud
+                        Geo-location Enhanced Address Search
+                      </li>
+                      <li className="pricing__feature">Unlimited API Calls</li>
+                      <li className="pricing__feature">Containerised</li>
+                      <li className="pricing__feature">
+                        Run On-Prem or in Your Own Cloud
                       </li>
                       <li className="pricing__feature">
-                        Automatically updated data source
+                        Manual or Automatic Data Updates
                       </li>
                       <li className="pricing__feature">Community support</li>
                     </ul>
@@ -73,26 +76,29 @@ const Pricing = () => {
                   <p className="pricing__sentence">Mission Critical Support</p>
                   <div className="pricing__price mbr-title-font">
                     <span className="pricing__currency">$</span>
-                    <span>POA</span>
+                    <span>Contact Us</span>
                   </div>
                   <div>
                     <ul className="pricing__feature-list mbr-text-font">
                       <li className="pricing__feature">Address Validation</li>
                       <li className="pricing__feature">Address Autocomplete</li>
                       <li className="pricing__feature">Address Search</li>
-                      <li className="pricing__feature">Unlimited API Calls</li>
-                      <li className="pricing__feature">Docker Image</li>
                       <li className="pricing__feature">
-                        Run on-prem or in your own cloud
+                        Geo-location Enhanced Address Search
+                      </li>
+                      <li className="pricing__feature">Unlimited API Calls</li>
+                      <li className="pricing__feature">Containerised</li>
+                      <li className="pricing__feature">
+                        Run On-Prem or in Your Own Cloud
                       </li>
                       <li className="pricing__feature">
-                        Automatically updated data source
+                        Manual or Automatic Data Updates
                       </li>
                       <li
                         className="pricing__feature"
                         style={{ fontWeight: '600' }}
                       >
-                        MISSION CRITICAL SUPPORT
+                        24×7 AEST SUPPORT
                       </li>
                     </ul>
                   </div>
@@ -101,7 +107,7 @@ const Pricing = () => {
                       to="/enterprise-price-request"
                       className="button btn special mbr-title-font btn-primary"
                     >
-                      Contact Us
+                      Request Quote
                     </Link>
                   </div>
                 </div>
