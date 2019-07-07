@@ -21,7 +21,8 @@ const HomeIndex = () => {
         meta={[
           {
             name: 'description',
-            content: 'Free Australian Address Validation',
+            content:
+              'Free Australian Address Validation, Search and Autocomplete',
           },
           { name: 'keywords', content: 'address, validation, gnaf, australia' },
         ]}
@@ -32,11 +33,7 @@ const HomeIndex = () => {
           <h1>Addressr</h1>
         </header>
         <div className="content">
-          <p>
-            Because address validation&nbsp;
-            <br />
-            Shouldn&apos;t cost the world
-          </p>
+          <p>Free Australian Address Validation, Search and Autocomplete</p>
           <ul className="actions">
             <li>
               <Link to="/signup" className="button next">
@@ -81,14 +78,16 @@ const HomeIndex = () => {
           </article>
           <article style={{ backgroundImage: `url(${pic02})` }}>
             <header className="major">
-              <h3>Not a SaaS</h3>
-              <p>We love SaaS, but only when we have control the cost.</p>
-              <p>
-                But SaaSes that charge by volume for an API that you need to
-                expose public, like on a sign up form? That scares us.{' '}
+              <h3>
+                Software{' '}
                 <strong style={{ color: 'black', fontWeight: '800' }}>
-                  Big time.
+                  NOT
                 </strong>{' '}
+                As A Service
+              </h3>
+              <p>We love SaaS, but not for address validation.</p>
+              <p>
+                On a public forms we want APIs where costs are controlled.
                 That&apos;s why we created Addressr.
               </p>
             </header>

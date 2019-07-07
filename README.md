@@ -28,6 +28,7 @@ Here is an example of using the grid, for a 3 column layout:
 
 - [x] not a SaaS
 - [ ] Check exists in Search
+- [ ] Run ad campaign
 - [ ] API docs
 - [ ] Screenshot and/or animation
 - [ ] AWS marketplace as sales channel
