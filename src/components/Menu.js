@@ -9,7 +9,7 @@ const Menu = ({ onToggleMenu, user }) => {
   if (user !== undefined) {
     acc = (
       <li>
-        <Link onClick={onToggleMenu} to="/r/account">
+        <Link onClick={onToggleMenu} to="/r/account/">
           <span>
             <img
               src={user.picture}
@@ -44,7 +44,7 @@ const Menu = ({ onToggleMenu, user }) => {
         </li>
         <li>
           <Link
-            to="/signup"
+            to="/signup/"
             className="button fit special"
             onClick={onToggleMenu}
           >
@@ -76,7 +76,7 @@ const Menu = ({ onToggleMenu, user }) => {
             </Link>
           </li>
           <li>
-            <Link onClick={onToggleMenu} to="/pricing">
+            <Link onClick={onToggleMenu} to="/pricing/">
               Pricing
             </Link>
           </li>
