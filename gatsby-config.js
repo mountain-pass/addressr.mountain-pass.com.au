@@ -41,11 +41,11 @@ module.exports = {
         exclude: [],
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-force-trailing-slashes`,
-    //   options: {
-    //     excludedPaths: [],
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-force-trailing-slashes`,
+      // options: {
+      //   excludedPaths: [],
+      // },
+    },
   ],
 };
