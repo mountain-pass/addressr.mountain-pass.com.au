@@ -6,7 +6,10 @@ import React from 'react';
 const Header = ({ onToggleMenu }) => (
   <header id="header" className="alt">
     <Link to="/" className="logo">
-      <strong>Addressr</strong> <span>by Mountain Pass</span>
+      <strong>Addressr</strong>{' '}
+      <span>
+        by <a href="https://mountain-pass.com.au">Mountain Pass</a>
+      </span>
     </Link>
     <nav>
       <a className="menu-link" onClick={onToggleMenu} href="javascript:;">
