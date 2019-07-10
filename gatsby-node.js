@@ -35,6 +35,10 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
             test: /auth0-js/,
             use: loaders.null(),
           },
+          {
+            test: /swagger-ui/,
+            use: loaders.null(),
+          },
         ],
       },
     });

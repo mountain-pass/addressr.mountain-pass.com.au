@@ -27,9 +27,9 @@ Here is an example of using the grid, for a 3 column layout:
 ## TODO
 
 - [x] not a SaaS
-- [ ] Check exists in Search
-- [ ] Run ad campaign
-- [ ] API docs
+- [😢] Check exists in Search
+- [...] Run ad campaign
+- [x] API docs
 - [ ] Screenshot and/or animation
 - [ ] AWS marketplace as sales channel
 - [ ] Make each tile clickable
@@ -46,3 +46,9 @@ Here is an example of using the grid, for a 3 column layout:
 - - [ ] How does it compare to google places API
 - [ ] add sandbox with limited results
 - [ ] capability to "push" data into another system?
+
+# APi Design
+
+search returns a list of flattened addresses - how to get structured address? Item links?
+
+search returns a list of structured addresses - poor bandwidth - we would still have item links so 🤷‍

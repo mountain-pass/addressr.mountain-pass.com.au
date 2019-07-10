@@ -16,6 +16,9 @@ const Footer = () => (
             <li>
               <Link to="/pricing/">Sign up</Link>
             </li>
+            <li>
+              <Link to="/api-docs/">API Docs</Link>
+            </li>
           </ul>
         </div>
         <div className="col-3">

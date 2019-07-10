@@ -80,6 +80,11 @@ const Menu = ({ onToggleMenu, user }) => {
               Pricing
             </Link>
           </li>
+          <li>
+            <Link onClick={onToggleMenu} to="/api-docs/">
+              API Docs
+            </Link>
+          </li>
           {acc}
         </ul>
         <ul className="actions vertical">{loginout}</ul>
