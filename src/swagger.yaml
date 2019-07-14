@@ -36,7 +36,7 @@ paths:
       summary: Get List of Addresses
       operationId: getAddresses
       description: |
-        returns a list of addresses matching the search strng
+        returns a list of addresses matching the search string
       tags:
         - address
       parameters: 
