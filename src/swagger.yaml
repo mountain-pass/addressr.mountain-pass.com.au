@@ -31,7 +31,7 @@ paths:
               items:
                 type: string
                 pattern: "<(.*)>;(.*)"
-  /address/:
+  /addresses/:
     get:
       summary: Get List of Addresses
       operationId: getAddresses
@@ -95,12 +95,12 @@ paths:
               items:
                 type: string
                 pattern: "<(.*)>;(.*)"
-  /address/{addressId}:
+  /addresses/{addressId}:
     get:
-      summary: Get Addresses
+      summary: Get Address
       operationId: getAddress
       description: |
-        returns detailed information about a specific addresse
+        returns detailed information about a specific address
       tags:
         - address
       parameters: 
