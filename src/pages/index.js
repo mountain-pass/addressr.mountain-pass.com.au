@@ -117,7 +117,7 @@ const HomeIndex = () => {
               <h3>Easy To Use API</h3>
               <p>Build your solution quickly, with our straightforward API.</p>
             </header>
-            {/* <Link to="/landing" className="link primary" /> */}
+            <Link to="/api-docs" className="link primary" />
           </article>
           <article style={{ backgroundImage: `url(${pic05})` }}>
             <header className="major">
