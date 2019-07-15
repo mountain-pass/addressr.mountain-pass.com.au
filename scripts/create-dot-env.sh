@@ -1,0 +1,10 @@
+#! /bin/sh
+
+read -d '' content << EOF
+AUTH0_DOMAIN=${AUTH0_DOMAIN}
+AUTH0_CLIENTID=${AUTH0_CLIENTID}
+AUTH0_CALLBACK=${AUTH0_CALLBACK}
+AUTH0_LOGGED_OUT=${AUTH0_LOGGED_OUT}
+EOF
+
+echo "$content" > .env.production
