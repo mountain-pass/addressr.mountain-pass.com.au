@@ -1,4 +1,4 @@
-import { faCalendarCheck, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faCheckSquare, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -236,11 +236,7 @@ class SignUp extends React.Component {
             <div className="inner">
               <p>
                 Addressr is currently in{' '}
-                <span className="status amber">Closed Beta</span>
-              </p>
-              <p>
-                <strong>Reserve</strong> your spot on the waitlist by applying
-                below.
+                <span className="status accent6">Open Beta</span>
               </p>
               <form method="post" onSubmit={this.handleSubmit}>
                 <div className="first field half">
@@ -299,7 +295,9 @@ class SignUp extends React.Component {
                   <div className="error">{purposeValidation}</div>
                 </div>
                 <div className="field">
-                  <label htmlFor="wait">How long can you wait?</label>
+                  <label htmlFor="wait">
+                    How soon do you plan to be in production?
+                  </label>
                   <textarea
                     name="wait"
                     id="wait"
@@ -319,9 +317,9 @@ class SignUp extends React.Component {
                       className={`special ${sending ? 'disabled' : ''}`}
                       type="submit"
                     >
-                      Reserve your spot&nbsp;
+                      Sign up now&nbsp;
                       <FontAwesomeIcon
-                        icon={sending ? faSpinner : faCalendarCheck}
+                        icon={sending ? faSpinner : faCheckSquare}
                         pulse={sending}
                       />
                     </button>
@@ -346,7 +344,7 @@ class SignUp extends React.Component {
                       👍
                     </span>
                     <p>
-                      We&apos;ll reach out to you shorlty to get you started
+                      We&apos;ll reach out to you shortly to get you started
                     </p>
                   </div>
                 ) : (

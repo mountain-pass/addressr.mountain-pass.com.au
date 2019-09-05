@@ -16,6 +16,8 @@ paths:
     get:
       summary: API Root
       operationId: getApiRoot
+      x-swagger-router-controller: Default
+      x-root-rel: self
       description: |
         returns a list of available APIs within the `Link` headers
       responses:
@@ -24,17 +26,26 @@ paths:
           schema:
             $ref: "#/definitions/Root"
           headers:
-            Link:
-              description: rfc5988 Link
+            link:
+              description: rfc5988 Links
               type: array
               collectionFormat: csv
               items:
                 type: string
                 pattern: "<(.*)>;(.*)"
-  /addresses/:
+            link-template:
+              description: rfc6570 Links Templates
+              type: array
+              collectionFormat: csv
+              items:
+                type: string
+                pattern: "<(.*)>;(.*)"
+  /addresses:
     get:
       summary: Get List of Addresses
       operationId: getAddresses
+      x-swagger-router-controller: Addresses
+      x-root-rel: https://addressr.mountain-pass.com.au/rels/address-search
       description: |
         returns a list of addresses matching the search string
       tags:
@@ -44,61 +55,43 @@ paths:
           in: query
           description: search string
           type: string
+          minLength: 3
+          required: true
         - name: p
           in: query
           description: page number
           type: integer
+          minimum: 2
+          required: false
       responses:
         200:
           description: successful query
           schema:
-            type: array
-            description: |
-              The list of addresses matching the search string. The list may be paginated.
-              A the `Link` header with a `rel` of `next` will be provied if there are addional results.
-            items:
-              type: object
-              title: Flattened Address
-              properties:
-                sla:
-                  $ref:  "#/definitions/SingleLineAddress"
-                score:
-                  type: number
-                  description: strength of the match relative to the other matches
-                links:
-                  type: object
-                  properties:
-                    self:
-                      type: object
-                      properties:
-                        href:
-                          type: string
-                          title: Link
-                          description: |
-                            The URL for the address, where additional information can be retrieved
-            example: 
-              - sla: Tower 3, Level 25, 300 Barangaroo Avenue, Sydney NSW 2000
-                score: 1
-                links:
-                  self: 
-                    href: /address/GANT_718592778
-              - sla: 109 Kirribilli Ave, Kirribilli NSW 2061
-                score: 0.985051936618461
-                links:
-                  self: 
-                    href: /address/GANT_718592782
+            $ref: "#/definitions/SearchResponse"
           headers:
-            Link:
+            link:
               description: rfc5988 Links
               type: array
               collectionFormat: csv
               items:
                 type: string
                 pattern: "<(.*)>;(.*)"
+            link-template:
+              description: rfc6570 Links Templates
+              type: array
+              collectionFormat: csv
+              items:
+                type: string
+                pattern: "<(.*)>;(.*)"
+        400:
+          description: invalid query
+          schema:
+            $ref: "#/definitions/ValidationError"
   /addresses/{addressId}:
     get:
       summary: Get Address
       operationId: getAddress
+      x-swagger-router-controller: Addresses
       description: |
         returns detailed information about a specific address
       tags:
@@ -115,8 +108,15 @@ paths:
           schema:
             $ref: "#/definitions/Address"
           headers:
-            Link:
+            link:
               description: rfc5988 Links
+              type: array
+              collectionFormat: csv
+              items:
+                type: string
+                pattern: "<(.*)>;(.*)"
+            link-template:
+              description: rfc6570 Links Templates
               type: array
               collectionFormat: csv
               items:
@@ -125,11 +125,63 @@ paths:
 definitions:
   Root:
     type: object
+  SearchResponse:
+    type: array
+    description: |
+      The list of addresses matching the search string. The list may be paginated.
+      A the `Link` header with a `rel` of `next` will be provied if there are addional results.
+    items:
+      type: object
+      title: Flattened Address
+      required:
+          - sla
+          - score
+          - links
+      properties:
+        sla:
+          $ref:  "#/definitions/SingleLineAddress"
+        score:
+          type: number
+          description: strength of the match relative to the other matches
+        links:
+          type: object
+          required: 
+            - self
+          properties:
+            self:
+              type: object
+              required: 
+                - href
+              properties:
+                href:
+                  type: string
+                  title: Link
+                  description: |
+                    The URL for the address, where additional information can be retrieved
+    example: 
+      - sla: LEVEL 25, TOWER 3, 300 BARANGAROO AV, BARANGAROO NSW 2000
+        score: 1
+        links:
+          self: 
+            href: /addresses/GANT_718592778
+      - sla: 109 KIRRIBILLI AV, KIRRIBILLI NSW 2061
+        score: 0.985051936618461
+        links:
+          self: 
+            href: /addresses/GANT_718592782
   Address:
     type: object
     title: Physical Australian Address
     description: |
-      A physical Australian address in structured and unstructured formats
+      A physical Australian address in structured and unstructured formats.
+
+      If an address has a "flat" component (e.g. UNIT 12, 32 SOME ST...), then it will also have a
+      the `ssla` and `smla` fields, which are shortended versions of `sla` and `mla`. e.g. (12/32 SOME ST...)
+    required: 
+      - "pid"
+      - "structured"
+      - "sla"
+      - "mla"
     properties:
       pid:
         type: string
@@ -139,70 +191,74 @@ definitions:
         $ref: "#/definitions/StructuredAddress"
       sla:
         $ref: "#/definitions/SingleLineAddress"
-      fla:
-        $ref: "#/definitions/FourLineAddress"
-      geo:
-        $ref: "#/definitions/AddressGeocoding"
-  AddressGeocoding:
-    type: object
-    description: Geocoding information about the address
-    properties:
-      level:
-        type: object
-        properties:
-          code:
-            type: integer
-            maxLength: 2
-            description: |
-              Binary indicator of the level of geocoding this address has. e.g. 0 = 000 = (No geocode), 1 = 001 = (No Locality geocode, No Street geocode, Address geocode), etc.
-            example: 7
-          name:
-            type: string
-            maxLength: 50
-            description: |
-              Name of the geocode level type code.
-            example: LOCALITY,STREET, ADDRESS
-      reliability:
-        type: object
-        properties:
-          code:
-            type: integer
-            maxLength: 1
-            description: |
-              Spatial precision of the geocode expressed as number in the range, 1 (unique identification of feature) to 6 (feature associated to region i.e. postcode).
-            example: 2
-          name:
-            type: string
-            maxLength: 50
-            description: |
-              Name of the geocode reliability code.
-            example: WITHIN ADDRESS SITE BOUNDARY OR ACCESS POINT
-      latitude:
-        type: number
-        example: -33.85351875
-      longitude:
-        type: number
-        example: 150.8947369
+      ssla:
+        $ref: "#/definitions/SingleLineAddress"
+      mla:
+        $ref: "#/definitions/MultiLineAddress"
+      smla:
+        $ref: "#/definitions/MultiLineAddress"
+      # geo:
+      #   $ref: "#/definitions/AddressGeocoding"
+  # AddressGeocoding:
+  #   type: object
+  #   description: Geocoding information about the address
+  #   properties:
+  #     level:
+  #       type: object
+  #       properties:
+  #         code:
+  #           type: integer
+  #           maxLength: 2
+  #           description: |
+  #             Binary indicator of the level of geocoding this address has. e.g. 0 = 000 = (No geocode), 1 = 001 = (No Locality geocode, No Street geocode, Address geocode), etc.
+  #           example: 7
+  #         name:
+  #           type: string
+  #           maxLength: 50
+  #           description: |
+  #             Name of the geocode level type code.
+  #           example: LOCALITY,STREET, ADDRESS
+  #     reliability:
+  #       type: object
+  #       properties:
+  #         code:
+  #           type: integer
+  #           maxLength: 1
+  #           description: |
+  #             Spatial precision of the geocode expressed as number in the range, 1 (unique identification of feature) to 6 (feature associated to region i.e. postcode).
+  #           example: 2
+  #         name:
+  #           type: string
+  #           maxLength: 50
+  #           description: |
+  #             Name of the geocode reliability code.
+  #           example: WITHIN ADDRESS SITE BOUNDARY OR ACCESS POINT
+  #     latitude:
+  #       type: number
+  #       example: -33.85351875
+  #     longitude:
+  #       type: number
+  #       example: 150.8947369
   SingleLineAddress:
     type: string
     title: Single Line Address
     description: |
       The full address flattened to a single line. The primary use is for search results and for autocomplete.
-    example: Tower 3, Level 25, 300 Barangaroo Avenue, Sydney NSW 2000
-  FourLineAddress:
+    example: LEVEL 25, TOWER 3, 300 BARANGAROO AV, BARANGAROO NSW 2000
+  MultiLineAddress:
     type: array
     items:
       type: string
-    minItems: 3
+    minItems: 2
     maxItems: 4
-    title: Four Line Address
+    title: Multi Line Address
     description: |
       The full address flattened to at most four lines. The primary use is for address labels
     example: 
-      - Tower 3
-      - Level 25
-      - 300 Barangaroo Avenue
-      - Sydney NSW 2000
+      - LEVEL 25
+      - TOWER 3
+      - 300 BARANGAROO AV
+      - BARANGAROO NSW 2000
   StructuredAddress:
     type: object
     properties:
@@ -231,21 +287,23 @@ definitions:
         type: object
         properties:
           type:
-            type: string
-            example: Tower
-            maxLength: 50
-          code:
-            type: string
-            example: Twr
-            maxLength: 7
+            type: object
+            properties:
+              name:
+                type: string
+                example: Tower
+                maxLength: 50
+              code:
+                type: string
+                example: Twr
+                maxLength: 7
           prefix:
             type: string
             example: CT
             maxLength: 2
           number:
-            type: string
-            example: "20114"
-            maxLength: 5
+            type: integer
+            example: 20114
           suffix:
             type: string
             example: AG
@@ -254,13 +312,16 @@ definitions:
         type: object
         properties:
           type:
-            type: string
-            example: Observation Deck
-            maxLength: 50
-          code:
-            type: string
-            example: OD
-            maxLength: 4
+            type: object
+            properties:
+              na,e:
+                type: string
+                example: Observation Deck
+                maxLength: 50
+              code:
+                type: string
+                example: OD
+                maxLength: 4
           prefix:
             type: string
             example: A
@@ -288,7 +349,7 @@ definitions:
             type: string
             example: "AA"
             maxLength: 2
-          second:
+          last:
             type: object
             properties:
               prefix:
@@ -311,13 +372,16 @@ definitions:
             example: Barangaroo
             maxLength: 100
           type:
-            type: string
-            example: Av
-            maxLength: 15
-          code:
-            type: string
-            example: Avenue
-            maxLength: 50
+            type: object
+            properties:
+              name:
+                type: string
+                example: Av
+                maxLength: 15
+              code:
+                type: string
+                example: Avenue
+                maxLength: 50
           suffix:
             type: object
             properties:
@@ -336,6 +400,17 @@ definitions:
             type: string
             example: Sydney
             maxLength: 100
+          class:
+            type: object
+            properties:
+              code:
+                type: string
+                example: G
+                maxLength: 1
+              name:
+                type: string
+                example: GAZETTED LOCALITY
+                maxLength: 50
       state:
         type: object
         properties:
@@ -354,4 +429,19 @@ definitions:
       confidence:
         type: integer
         description: |
-          Reflects how many contributor databases this N N - - CONFIDENCE address appears in (0 = 1 database, 1 = 2 database etc.).
+          Reflects how many contributor databases this address appears in (0 = 1 database, 1 = 2 database etc.).
+  ValidationError:
+    type: object
+    properties:
+      code:
+        type: string
+      failedValidation:
+        type: boolean
+      path:
+        type: array
+        items:
+          type: string
+      paramName:
+        type: string
+      message:
+        type: string

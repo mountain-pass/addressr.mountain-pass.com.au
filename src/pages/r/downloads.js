@@ -11,7 +11,7 @@ const Downloads = () => {
         <title>Downloads - Addressr by Mountain Pass</title>
         <meta
           name="description"
-          content="Documentation for Addressr by Mountain Pass"
+          content="Downloads for Addressr by Mountain Pass"
         />
       </Helmet>
 
@@ -21,7 +21,7 @@ const Downloads = () => {
             <header className="major">
               <h1>Downloads</h1>
             </header>
-            <p>Comming soon...</p>
+            <p>Coming soon...</p>
           </div>
         </section>
       </div>
