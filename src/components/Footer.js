@@ -19,15 +19,18 @@ const Footer = () => (
             <li>
               <Link to="/api-docs/">API Docs</Link>
             </li>
+            <li>
+              <Link to="/download/">Download</Link>
+            </li>
+            <li>
+              <Link to="/README/">README</Link>
+            </li>
           </ul>
         </div>
         <div className="col-3">
           <ul className="links">
             <li>
               <Link to="/r/docs/">Docs</Link>
-            </li>
-            <li>
-              <Link to="/r/downloads/">Downloads</Link>
             </li>
             <li>
               <Link to="/r/community-support/">Community Support</Link>

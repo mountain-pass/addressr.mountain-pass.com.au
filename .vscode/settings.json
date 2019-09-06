@@ -20,5 +20,5 @@
   },
   "spellright.addToSystemDictionary": true,
   "spellright.language": ["en"],
-  "spellright.documentTypes": ["markdown", "latex", "plaintext", "javascript"]
+  "spellright.documentTypes": ["markdown", "latex", "plaintext"]
 }

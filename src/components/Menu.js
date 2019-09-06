@@ -85,6 +85,16 @@ const Menu = ({ onToggleMenu, user }) => {
               API Docs
             </Link>
           </li>
+          <li>
+            <Link onClick={onToggleMenu} to="/download/">
+              Download
+            </Link>
+          </li>
+          <li>
+            <Link onClick={onToggleMenu} to="/README/">
+              README
+            </Link>
+          </li>
           {acc}
         </ul>
         <ul className="actions vertical">{loginout}</ul>
@@ -95,14 +105,6 @@ const Menu = ({ onToggleMenu, user }) => {
               to={user === undefined ? '/signup' : '/r/docs'}
             >
               Docs
-            </Link>
-          </li>
-          <li>
-            <Link
-              onClick={onToggleMenu}
-              to={user === undefined ? '/signup' : '/r/downloads'}
-            >
-              Downloads
             </Link>
           </li>
           <li>
