@@ -36,7 +36,7 @@ const HomeIndex = () => {
           <p>Free Australian Address Validation, Search and Autocomplete</p>
           <ul className="actions">
             <li>
-              <Link to="/signup/" className="button next">
+              <Link to="/quick-start/" className="button next">
                 Get Started Free
               </Link>
             </li>
@@ -165,7 +165,7 @@ const HomeIndex = () => {
             </p>
             <ul className="actions">
               <li>
-                <Link to="/signup/" className="button next">
+                <Link to="/quick-start/" className="button next">
                   Get Started Free
                 </Link>
               </li>

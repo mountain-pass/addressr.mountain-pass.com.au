@@ -1,6 +1,7 @@
+import { Link } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Link } from 'gatsby';
+import Banner from '../components/Banner';
 import Layout from '../components/layout';
 import { getProfile } from '../utils/auth';
 
@@ -13,12 +14,15 @@ const Downloads = () => {
         <meta name="description" content="Download Addressr by Mountain Pass" />
       </Helmet>
 
+      <Banner>
+        <header className="major">
+          <h1>Download</h1>
+        </header>
+      </Banner>
+
       <div id="main" className="alt">
         <section id="one">
           <div className="inner">
-            <header className="major">
-              <h1>Download</h1>
-            </header>
             <p>
               Addressr runs in <a href="https://nodejs.org/">Node.js</a> and is
               installed using{' '}
@@ -26,7 +30,7 @@ const Downloads = () => {
             </p>
             <pre>npm install -g @mountainpass/addressr</pre>
             <p>
-              <Link to="/README">Find out more</Link>
+              <Link to="/quick-start">Find out more</Link>
             </p>
           </div>
         </section>

@@ -1,33 +1,33 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
+import Banner from '../components/Banner';
 import Layout from '../components/layout';
 import { getProfile } from '../utils/auth';
 
-const Readme = () => {
+const QuickStart = () => {
   const user = getProfile();
+
   return (
     <Layout user={user}>
       <Helmet>
-        <title>README - Addressr by Mountain Pass</title>
+        <title>Quick Start - Addressr by Mountain Pass</title>
         <meta
           name="description"
-          content="README for Addressr by Mountain Pass"
+          content="Quick Start for Addressr by Mountain Pass"
         />
       </Helmet>
+
+      <Banner>
+        <header className="major">
+          <h1>Quick Start</h1>
+        </header>
+      </Banner>
 
       <div id="main" className="alt">
         <section id="one">
           <div className="inner">
-            <header className="major">
-              <h1>README</h1>
-            </header>
-            <h2>Quick Start</h2>
             <ol>
-              <li>
-                <Link to="/signup/">Sign up</Link> and get your username and
-                password
-              </li>
               <li>
                 Install addressr
                 <pre>
@@ -38,11 +38,8 @@ const Readme = () => {
                 Start elastic search. For example
                 <pre>
                   <code>
-                    docker pull
-                    docker.elastic.co/elasticsearch/elasticsearch:7.2.0 docker
-                    run -p 9200:9200 -p 9300:9300 -e
-                    &quot;discovery.type=single-node&quot;
-                    docker.elastic.co/elasticsearch/elasticsearch:7.2.0
+                    {`docker pull docker.elastic.co/elasticsearch/elasticsearch:7.2.0
+docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.2.0`}
                   </code>
                 </pre>
               </li>
@@ -50,34 +47,36 @@ const Readme = () => {
                 Start mongodb. For example
                 <pre>
                   <code>
-                    docker pull mongo:4.0.11 mkdir ~/data docker run -d -p
-                    27017:27017 -v ~/data:/data/db
-                    MONGO_INITDB_ROOT_USERNAME=root
-                    MONGO_INITDB_ROOT_PASSWORD=example mongo:4.0.11
+                    {`docker pull mongo:4.0.11 mkdir ~/data
+docker run -d -p 27017:27017 -v ~/data:/data/db MONGO_INITDB_ROOT_USERNAME=root MONGO_INITDB_ROOT_PASSWORD=example mongo:4.0.11`}
                   </code>
                 </pre>
+              </li>
+              <li>
+                <Link to="/signup/">Sign up</Link> and get your username and
+                password
               </li>
               <li>
                 Start API server
                 <pre>
                   <code>
-                    export ADDRESSR_USERNAME=&lt;username&gt; export
-                    ADDRESSR_PASSWORD=&lt;password&gt; export ELASTIC_PORT=9200
-                    export ELASTIC_HOST=localhost export MONGO_USERNAME=root
-                    export MONGO_PASSWORD=example export
-                    MONGO_URL=mongodb://localhost:27017 addressr-server
+                    {`export ADDRESSR_USERNAME=&lt;username&gt; export
+ADDRESSR_PASSWORD=&lt;password&gt; export ELASTIC_PORT=9200
+export ELASTIC_HOST=localhost export MONGO_USERNAME=root
+export MONGO_PASSWORD=example export
+MONGO_URL=mongodb://localhost:27017 addressr-server`}
                   </code>
                 </pre>
               </li>
               <li>
-                Run data Loader
+                Run Data Loader
                 <pre>
                   <code>
-                    export ADDRESSR_USERNAME=&lt;username&gt; export
-                    ADDRESSR_PASSWORD=&lt;password&gt; export ELASTIC_PORT=9200
-                    export ELASTIC_HOST=localhost export MONGO_USERNAME=root
-                    export MONGO_PASSWORD=example export
-                    MONGO_URL=mongodb://localhost:27017 addressr-loader
+                    {`export ADDRESSR_USERNAME=&lt;username&gt; export
+ADDRESSR_PASSWORD=&lt;password&gt; export ELASTIC_PORT=9200
+export ELASTIC_HOST=localhost export MONGO_USERNAME=root
+export MONGO_PASSWORD=example export
+MONGO_URL=mongodb://localhost:27017 addressr-loader`}
                   </code>
                 </pre>
               </li>
@@ -92,7 +91,7 @@ const Readme = () => {
                 Search for an address
                 <pre>
                   <code>
-                    curl -i http://localhost:8080/addresses?q=LEVEL+25,+TOWER+3
+                    {`curl -i http://localhost:8080/addresses?q=LEVEL+25,+TOWER+3`}
                   </code>
                 </pre>
               </li>
@@ -104,36 +103,37 @@ const Readme = () => {
               </li>
             </ol>
             {/* <h2>How it Works</h2>
-<pre><code>
-                             ┌──────────────────┐
+            <pre>
+              <code>
+                {`                             ┌──────────────────┐
                 1. Get       │                  │
-          ┌──────G-NAF──────▶│   data.gov.au    │
+          ┌──────G-NAF──────>│   data.gov.au    │
           │                  │                  │
           │                  └──────────────────┘
           │                       .─────────.
           │                      (           )
- ┌────────────────┐              │`─────────'│
+ ┌────────────────┐              │\`─────────'│
  │................│ 2. Save and  │           │
- │.address-loader.│───extract───▶│filesystem │
+ │.address-loader.│───extract───>│filesystem │
  │................│    G-NAF     │           │
  └────────────────┘              └           ┘
-          │                       `─────────'
+          │                       \`─────────'
           │                       .─────────.
           │                      (           )
-          │                      │`─────────'│              ┌───────────────────────┐
+          │                      │\`─────────'│              ┌───────────────────────┐
           │      3a. Index       │  elastic  │     Search   │.......................│
-          ├────────G-NAF────────▶│  search   │◀──Addresses──│◀───────────────────┐..│
+          ├────────G-NAF────────>│  search   │<──Addresses──│<───────────────────┐..│
           │       records        │           │              │....................│..│
           │                      └           ┘              │....................│..│
-          │                       `─────────'               │....................│..│
+          │                       \`─────────'               │....................│..│
           │                       .─────────.               │....addressr-server.│..│
           │                      (           )              │....................│..│
-          │                      │`─────────'│              │....................│..│
+          │                      │\`─────────'│              │....................│..│
           │      3b. Store       │           │      Get     │....................│..│
-          └────────G-NAF────────▶│  mongodb  │◀───Address───│◀──┐................│..│
+          └────────G-NAF────────>│  mongodb  │<───Address───│<──┐................│..│
                   Records        │           │    Details   │...│................│..│
                                  └           ┘              └───┴────────────────┴──┘
-                                  `─────────'                   ▲                ▲
+                                  \`─────────'                   ▲                ▲
                                                                 │                │
                                                                GET               │
                                                          /addresses/(ID)         │
@@ -147,7 +147,9 @@ const Readme = () => {
                                                              │                      │
                                                              │                      │
                                                              └──────────────────────┘
-</code></pre> */}
+`}
+              </code>
+            </pre> */}
 
             <h2>System requirements</h2>
             <p>Node JS &gt;= 11.14.0 Python &gt;= 2.7.16</p>
@@ -171,4 +173,4 @@ const Readme = () => {
   );
 };
 
-export default Readme;
+export default QuickStart;

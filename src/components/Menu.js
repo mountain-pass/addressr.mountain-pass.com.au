@@ -91,8 +91,8 @@ const Menu = ({ onToggleMenu, user }) => {
             </Link>
           </li>
           <li>
-            <Link onClick={onToggleMenu} to="/README/">
-              README
+            <Link onClick={onToggleMenu} to="/quick-start/">
+              Quick Start
             </Link>
           </li>
           {acc}

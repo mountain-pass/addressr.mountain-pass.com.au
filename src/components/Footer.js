@@ -23,7 +23,7 @@ const Footer = () => (
               <Link to="/download/">Download</Link>
             </li>
             <li>
-              <Link to="/README/">README</Link>
+              <Link to="/quick-start/">Quick Start</Link>
             </li>
           </ul>
         </div>

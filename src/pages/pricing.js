@@ -59,7 +59,7 @@ const Pricing = () => {
                   </div>
                   <div>
                     <Link
-                      to="/signup/"
+                      to="/quick-start/"
                       className="button btn special mbr-title-font btn-primary"
                     >
                       Get Started Free
