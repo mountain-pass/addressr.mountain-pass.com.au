@@ -60,11 +60,14 @@ docker run -d -p 27017:27017 -v ~/data:/data/db MONGO_INITDB_ROOT_USERNAME=root 
                 Start API server
                 <pre>
                   <code>
-                    {`export ADDRESSR_USERNAME=&lt;username&gt; export
-ADDRESSR_PASSWORD=&lt;password&gt; export ELASTIC_PORT=9200
-export ELASTIC_HOST=localhost export MONGO_USERNAME=root
-export MONGO_PASSWORD=example export
-MONGO_URL=mongodb://localhost:27017 addressr-server`}
+                    {`export ADDRESSR_USERNAME=<username>
+export ADDRESSR_PASSWORD=<password>
+export ELASTIC_PORT=9200
+export ELASTIC_HOST=localhost
+export MONGO_USERNAME=root
+export MONGO_PASSWORD=example
+export MONGO_URL=mongodb://localhost:27017
+addressr-server`}
                   </code>
                 </pre>
               </li>
@@ -72,11 +75,14 @@ MONGO_URL=mongodb://localhost:27017 addressr-server`}
                 Run Data Loader
                 <pre>
                   <code>
-                    {`export ADDRESSR_USERNAME=&lt;username&gt; export
-ADDRESSR_PASSWORD=&lt;password&gt; export ELASTIC_PORT=9200
-export ELASTIC_HOST=localhost export MONGO_USERNAME=root
-export MONGO_PASSWORD=example export
-MONGO_URL=mongodb://localhost:27017 addressr-loader`}
+                    {`export ADDRESSR_USERNAME=<username>
+export ADDRESSR_PASSWORD=<password>
+export ELASTIC_PORT=9200
+export ELASTIC_HOST=localhost
+export MONGO_USERNAME=root
+export MONGO_PASSWORD=example
+export MONGO_URL=mongodb://localhost:27017
+addressr-loader`}
                   </code>
                 </pre>
               </li>
@@ -133,7 +139,7 @@ MONGO_URL=mongodb://localhost:27017 addressr-loader`}
           └────────G-NAF────────>│  mongodb  │<───Address───│<──┐................│..│
                   Records        │           │    Details   │...│................│..│
                                  └           ┘              └───┴────────────────┴──┘
-                                  \`─────────'                   ▲                ▲
+                                  \`─────────'                   ^                ^
                                                                 │                │
                                                                GET               │
                                                          /addresses/(ID)         │
@@ -152,7 +158,7 @@ MONGO_URL=mongodb://localhost:27017 addressr-loader`}
             </pre> */}
 
             <h2>System requirements</h2>
-            <p>Node JS &gt;= 11.14.0 Python &gt;= 2.7.16</p>
+            <p>Node JS &gt;= 11.14.0</p>
             <h3>Elastic Search:</h3>
             <p>elasticsearch-oss &gt;= 7.2.0 with 1.4GiB of memory</p>
             <h3>Mongo DB</h3>
