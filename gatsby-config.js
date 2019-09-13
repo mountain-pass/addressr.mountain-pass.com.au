@@ -9,7 +9,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        exclude: ['/callback'],
+        exclude: ['/callback', '/r/*'],
       },
     },
     'gatsby-plugin-react-helmet',
