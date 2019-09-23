@@ -344,7 +344,7 @@ class SignUp extends React.Component {
               <div className="field">
                 {sent ? (
                   <div className="button icon fa-check success">
-                    You&apos;re on the list!{' '}
+                    You&apos;re on the list!
                     <span role="img" aria-label="Thumbs up">
                       👍
                     </span>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import Layout from '../../components/layout';
+import Layout from '../components/layout';
 
 const Docs = () => {
   return (
@@ -19,7 +19,9 @@ const Docs = () => {
             <header className="major">
               <h1>Community Support</h1>
             </header>
-            <p>Comming soon...</p>
+            <a href="https://join.slack.com/t/addressr-support/shared_invite/enQtNzY5MjM4Nzg1MDQwLWQ4ZTE0NThiZGEzNzJlMDkzYmUxOThmMTJlNjg4MTAwN2RmNTZlNDdmOWEyOTlmNDZiMjBiMjI5YWNkZTBiMjA">
+              Join the conversation at addressr-support.slack.com
+            </a>
           </div>
         </section>
       </div>

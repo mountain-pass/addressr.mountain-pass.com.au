@@ -25,15 +25,15 @@ const Footer = () => (
             <li>
               <Link to="/quick-start/">Quick Start</Link>
             </li>
+            <li>
+              <Link to="/community-support/">Community Support</Link>
+            </li>
           </ul>
         </div>
         <div className="col-3">
           <ul className="links">
             <li>
               <Link to="/r/docs/">Docs</Link>
-            </li>
-            <li>
-              <Link to="/r/community-support/">Community Support</Link>
             </li>
             <li>
               <Link to="/r/enterprise-support/">Enterprise Support</Link>

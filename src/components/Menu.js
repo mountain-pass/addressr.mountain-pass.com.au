@@ -95,6 +95,11 @@ const Menu = ({ onToggleMenu, user }) => {
               Quick Start
             </Link>
           </li>
+          <li>
+            <Link onClick={onToggleMenu} to="/community-support">
+              Community Support
+            </Link>
+          </li>
           {acc}
         </ul>
         <ul className="actions vertical">{loginout}</ul>
@@ -105,14 +110,6 @@ const Menu = ({ onToggleMenu, user }) => {
               to={user === undefined ? '/signup' : '/r/docs'}
             >
               Docs
-            </Link>
-          </li>
-          <li>
-            <Link
-              onClick={onToggleMenu}
-              to={user === undefined ? '/signup' : '/r/community-support'}
-            >
-              Community Support
             </Link>
           </li>
           <li>
