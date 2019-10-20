@@ -6,17 +6,22 @@
 
 // You can delete this file if you're not using it
 
-exports.onCreatePage = async ({ page, actions }) => {
-  const { createPage } = actions;
+exports.onCreatePage = async ({ actions }) => {
+  const { createRedirect } = actions;
 
-  // page.matchPath is a special key that's used for matching pages
-  // only on the client.
-  if (page.path.match(/^\/docs/)) {
-    page.matchPath = '/docs/*';
+  createRedirect({
+    fromPath: `/signup`,
+    isPermanent: true,
+    redirectInBrowser: true,
+    toPath: `/quick-start/`,
+  });
 
-    // Update the page.
-    createPage(page);
-  }
+  createRedirect({
+    fromPath: `/signup/`,
+    isPermanent: true,
+    redirectInBrowser: true,
+    toPath: `/quick-start/`,
+  });
 };
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {

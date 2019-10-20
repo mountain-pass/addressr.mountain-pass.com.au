@@ -2,7 +2,6 @@
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { login, logout } from '../utils/auth';
 
 const Menu = ({ onToggleMenu, user }) => {
   var acc = '';
@@ -27,45 +26,7 @@ const Menu = ({ onToggleMenu, user }) => {
       </li>
     );
   }
-  const loginout =
-    user === undefined ? (
-      <>
-        <li>
-          <a
-            href="#login"
-            className="button fit"
-            onClick={e => {
-              login();
-              e.preventDefault();
-            }}
-          >
-            Log In
-          </a>
-        </li>
-        <li>
-          <Link
-            to="/signup/"
-            className="button fit special"
-            onClick={onToggleMenu}
-          >
-            Signup
-          </Link>
-        </li>
-      </>
-    ) : (
-      <li>
-        <a
-          href="#logout"
-          className="button fit"
-          onClick={e => {
-            logout();
-            e.preventDefault();
-          }}
-        >
-          Log Out
-        </a>
-      </li>
-    );
+
   return (
     <nav id="menu">
       <div className="inner">
@@ -98,26 +59,6 @@ const Menu = ({ onToggleMenu, user }) => {
           <li>
             <Link onClick={onToggleMenu} to="/community-support">
               Community Support
-            </Link>
-          </li>
-          {acc}
-        </ul>
-        <ul className="actions vertical">{loginout}</ul>
-        <ul className={user === undefined ? 'links light' : 'links'}>
-          <li>
-            <Link
-              onClick={onToggleMenu}
-              to={user === undefined ? '/signup' : '/r/docs'}
-            >
-              Docs
-            </Link>
-          </li>
-          <li>
-            <Link
-              onClick={onToggleMenu}
-              to={user === undefined ? '/signup' : '/r/enterprise-support'}
-            >
-              Enterprise Support
             </Link>
           </li>
           {acc}

@@ -60,9 +60,7 @@ docker run -d -p 27017:27017 -v ~/data:/data/db MONGO_INITDB_ROOT_USERNAME=root 
                 Start API server
                 <pre>
                   <code>
-                    {`export ADDRESSR_USERNAME=<username>
-export ADDRESSR_PASSWORD=<password>
-export ELASTIC_PORT=9200
+                    {`export ELASTIC_PORT=9200
 export ELASTIC_HOST=localhost
 export MONGO_USERNAME=root
 export MONGO_PASSWORD=example
@@ -75,9 +73,7 @@ addressr-server`}
                 Run Data Loader
                 <pre>
                   <code>
-                    {`export ADDRESSR_USERNAME=<username>
-export ADDRESSR_PASSWORD=<password>
-export ELASTIC_PORT=9200
+                    {`export ELASTIC_PORT=9200
 export ELASTIC_HOST=localhost
 export MONGO_USERNAME=root
 export MONGO_PASSWORD=example
