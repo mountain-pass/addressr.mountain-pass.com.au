@@ -1,4 +1,3 @@
-import { Link } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
 import Banner from '../components/Banner';
@@ -51,10 +50,6 @@ docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elas
 docker run -d -p 27017:27017 -v ~/data:/data/db MONGO_INITDB_ROOT_USERNAME=root MONGO_INITDB_ROOT_PASSWORD=example mongo:4.0.11`}
                   </code>
                 </pre>
-              </li>
-              <li>
-                <Link to="/signup/">Sign up</Link> and get your username and
-                password
               </li>
               <li>
                 Start API server
