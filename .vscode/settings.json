@@ -20,5 +20,8 @@
   },
   "spellright.addToSystemDictionary": true,
   "spellright.language": ["en"],
-  "spellright.documentTypes": ["markdown", "latex", "plaintext"]
+  "spellright.documentTypes": ["markdown", "latex", "plaintext"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
