@@ -89,7 +89,7 @@
       "prettier --write",
       "git add"
     ],
-    "*.{png,jpeg,jpg,gif,svg}": [
+    "*.{png,jpeg,jpg,gif}": [
       "imagemin-lint-staged",
       "git add"
     ]
