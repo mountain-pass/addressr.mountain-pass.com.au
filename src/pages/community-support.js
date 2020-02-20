@@ -19,7 +19,7 @@ const Docs = () => {
             <header className="major">
               <h1>Community Support</h1>
             </header>
-            <a href="https://join.slack.com/t/addressr-support/shared_invite/enQtNzY5MjM4Nzg1MDQwLWQ4ZTE0NThiZGEzNzJlMDkzYmUxOThmMTJlNjg4MTAwN2RmNTZlNDdmOWEyOTlmNDZiMjBiMjI5YWNkZTBiMjA">
+            <a href="https://join.slack.com/t/addressr-support/shared_invite/enQtODA5OTQzODYwNTMzLTczYzJkNjk1ZWY5YjgyZTY3NTRjMGQ1MDY4ODkxOTc2NDEyOTdiYmNlYjI2NWNjNWNjZmY1YjJiYTM3OTEwNWI">
               Join the conversation at addressr-support.slack.com
             </a>
           </div>
