@@ -1,6 +1,5 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import howitworks from '../assets/images/addressr.svg';
 import Banner from '../components/Banner';
 import Layout from '../components/layout';
 import { getProfile } from '../utils/auth';
@@ -33,13 +32,22 @@ const QuickStart = () => {
                 <pre>
                   <code>npm install @mountainpass/addressr -g</code>
                 </pre>
+                NOTE: If you are running windows, you&apos;ll need to use{' '}
+                <a
+                  href="https://docs.microsoft.com/en-us/windows/wsl/install-win10"
+                  rel="nofollow"
+                >
+                  wsl
+                </a>
               </li>
               <li>
                 Start elastic search. For example
                 <pre>
                   <code>
-                    {`docker pull docker.elastic.co/elasticsearch/elasticsearch:7.2.0
-docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.2.0`}
+                    {'docker pull\n'}
+                    {
+                      'docker.elastic.co/elasticsearch/elasticsearch:7.2.0 docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.2.0'
+                    }
                   </code>
                 </pre>
               </li>
@@ -47,20 +55,66 @@ docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elas
                 Start API server
                 <pre>
                   <code>
-                    {`export ELASTIC_PORT=9200
-export ELASTIC_HOST=localhost
-addressr-server`}
+                    {'export ELASTIC_PORT=9200\n'}
+                    {'export ELASTIC_HOST=localhost\n'}
+                    {'addressr-server\n'}
                   </code>
                 </pre>
               </li>
               <li>
-                Run Data Loader
+                Setup the env vars for the data loader, but runnning
                 <pre>
                   <code>
-                    {`export ELASTIC_PORT=9200
-export ELASTIC_HOST=localhost
-addressr-loader`}
+                    {'export ELASTIC_PORT=9200\n'}
+                    {'export ELASTIC_HOST=localhost\n'}
+                    {'export ADDRESSR_INDEX_TIMEOUT=30s\n'}
+                    {'export ADDRESSR_INDEX_BACKOFF=1000\n'}
+                    {'export ADDRESSR_INDEX_BACKOFF_INCREMENT=1000\n'}
+                    {'export ADDRESSR_INDEX_BACKOFF_MAX=10000\n'}
                   </code>
+                </pre>
+                <ol>
+                  <li>
+                    Optional - enable geocodes by setting the following env vars
+                    for the data loader.
+                    <strong> NOTE:</strong> with geocodes enabled, indexing
+                    takes much longer and needs much more memory. Only use turn
+                    them on if you need them. You can always add them later.
+                  </li>
+                </ol>
+                <pre>
+                  <code>
+                    {'export ADDRESSR_ENABLE_GEO=1\n'}
+                    {'export NODE_OPTIONS=--max_old_space_size=8196'}
+                  </code>
+                </pre>
+                <ol start="2">
+                  <li>
+                    Optional - limit the addresses to a single state by setting
+                    the <code>COVERED_STATES</code> env var for the data loader.
+                    This dramatically speeds up indexing. For example:
+                  </li>
+                </ol>
+                <pre>
+                  <code>COVERED_STATES=VIC,SA</code>
+                </pre>
+                Valid values are:
+                <ul>
+                  <li>ACT</li>
+                  <li>NSW</li>
+                  <li>NT</li>
+                  <li>OT</li>
+                  <li>QLD</li>
+                  <li>SA</li>
+                  <li>TAS</li>
+                  <li>VIC</li>
+                  <li>WA</li>
+                </ul>
+              </li>
+              <li>
+                Run data Loader
+                <pre>
+                  <code>addressr-loader</code>
                 </pre>
               </li>
               <li>
@@ -74,7 +128,7 @@ addressr-loader`}
                 Search for an address
                 <pre>
                   <code>
-                    {`curl -i http://localhost:8080/addresses?q=LEVEL+25,+TOWER+3`}
+                    curl -i http://localhost:8080/addresses?q=LEVEL+25,+TOWER+3
                   </code>
                 </pre>
               </li>
@@ -85,20 +139,16 @@ addressr-loader`}
                 addressr regularly updated
               </li>
             </ol>
-            <h2>How it works</h2>
-            <img
-              src={howitworks}
-              alt="how it works"
-              style={{
-                border: 'solid white 20px',
-              }}
-            />
 
+            <h2>How it Works</h2>
             <h2>System requirements</h2>
             <h3>Elastic Search:</h3>
             <p>elasticsearch-oss &gt;= 7.2.0 with 1.4GiB of memory</p>
             <h3>Addressr Loader</h3>
+            <h4>Default</h4>
             <p>Node JS &gt;= 11.14.0 with 1GiB of memory</p>
+            <h4>With Geocoding enabled</h4>
+            <p>Node JS &gt;= 11.14.0 with 8GiB of memory</p>
             <h3>Addressr Server</h3>
             <p>Node JS &gt;= 11.14.0 with 64MiB of memory</p>
           </div>
