@@ -8,7 +8,7 @@ basePath: "/"
 tags:
   - name: address
 schemes:
-- "https"
+  - "https"
 produces:
   - "application/json"
 paths:
@@ -50,7 +50,7 @@ paths:
         returns a list of addresses matching the search string
       tags:
         - address
-      parameters: 
+      parameters:
         - name: q
           in: query
           description: search string
@@ -96,7 +96,7 @@ paths:
         returns detailed information about a specific address
       tags:
         - address
-      parameters: 
+      parameters:
         - name: addressId
           in: path
           description: ID of the address.
@@ -134,23 +134,23 @@ definitions:
       type: object
       title: Flattened Address
       required:
-          - sla
-          - score
-          - links
+        - sla
+        - score
+        - links
       properties:
         sla:
-          $ref:  "#/definitions/SingleLineAddress"
+          $ref: "#/definitions/SingleLineAddress"
         score:
           type: number
           description: strength of the match relative to the other matches
         links:
           type: object
-          required: 
+          required:
             - self
           properties:
             self:
               type: object
-              required: 
+              required:
                 - href
               properties:
                 href:
@@ -158,16 +158,16 @@ definitions:
                   title: Link
                   description: |
                     The URL for the address, where additional information can be retrieved
-    example: 
+    example:
       - sla: LEVEL 25, TOWER 3, 300 BARANGAROO AV, BARANGAROO NSW 2000
         score: 1
         links:
-          self: 
+          self:
             href: /addresses/GANT_718592778
       - sla: 109 KIRRIBILLI AV, KIRRIBILLI NSW 2061
         score: 0.985051936618461
         links:
-          self: 
+          self:
             href: /addresses/GANT_718592782
   Address:
     type: object
@@ -177,7 +177,7 @@ definitions:
 
       If an address has a "flat" component (e.g. UNIT 12, 32 SOME ST...), then it will also have a
       the `ssla` and `smla` fields, which are shortended versions of `sla` and `mla`. e.g. (12/32 SOME ST...)
-    required: 
+    required:
       - "pid"
       - "structured"
       - "sla"
@@ -197,48 +197,72 @@ definitions:
         $ref: "#/definitions/MultiLineAddress"
       smla:
         $ref: "#/definitions/MultiLineAddress"
-      # geo:
-      #   $ref: "#/definitions/AddressGeocoding"
-  # AddressGeocoding:
-  #   type: object
-  #   description: Geocoding information about the address
-  #   properties:
-  #     level:
-  #       type: object
-  #       properties:
-  #         code:
-  #           type: integer
-  #           maxLength: 2
-  #           description: |
-  #             Binary indicator of the level of geocoding this address has. e.g. 0 = 000 = (No geocode), 1 = 001 = (No Locality geocode, No Street geocode, Address geocode), etc.
-  #           example: 7
-  #         name:
-  #           type: string
-  #           maxLength: 50
-  #           description: |
-  #             Name of the geocode level type code.
-  #           example: LOCALITY,STREET, ADDRESS
-  #     reliability:
-  #       type: object
-  #       properties:
-  #         code:
-  #           type: integer
-  #           maxLength: 1
-  #           description: |
-  #             Spatial precision of the geocode expressed as number in the range, 1 (unique identification of feature) to 6 (feature associated to region i.e. postcode).
-  #           example: 2
-  #         name:
-  #           type: string
-  #           maxLength: 50
-  #           description: |
-  #             Name of the geocode reliability code.
-  #           example: WITHIN ADDRESS SITE BOUNDARY OR ACCESS POINT
-  #     latitude:
-  #       type: number
-  #       example: -33.85351875
-  #     longitude:
-  #       type: number
-  #       example: 150.8947369
+      geo:
+        $ref: "#/definitions/AddressGeocoding"
+  AddressGeocoding:
+    type: object
+    description: Geocoding information about the address
+    properties:
+      level:
+        type: object
+        properties:
+          code:
+            type: integer
+            maxLength: 2
+            description: |
+              Binary indicator of the level of geocoding this address has. e.g. 0 = 000 = (No geocode), 1 = 001 = (No Locality geocode, No Street geocode, Address geocode), etc.
+            example: 7
+          name:
+            type: string
+            maxLength: 50
+            description: |
+              Name of the geocode level type code.
+            example: LOCALITY,STREET, ADDRESS
+      geocodes:
+        type: array
+        items:
+          type: object
+          properties:
+            default:
+              type: boolean
+              description: |
+                Indicates if the geocode is the default or a site geocode (i.e. from *_ADDRESS_DEFAULT_GEOCODE_psv or from *_ADDRESS_SITE_GEOCODE_psv)
+            latitude:
+              type: number
+              example: -33.85351875
+            longitude:
+              type: number
+              example: 150.8947369
+            reliability:
+              type: object
+              properties:
+                code:
+                  type: integer
+                  maxLength: 1
+                  description: |
+                    Spatial precision of the geocode expressed as number in the range, 1 (unique identification of feature) to 6 (feature associated to region i.e. postcode).
+                  example: 2
+                name:
+                  type: string
+                  maxLength: 50
+                  description: |
+                    Name of the geocode reliability code.
+                  example: WITHIN ADDRESS SITE BOUNDARY OR ACCESS POINT
+            type:
+              type: object
+              properties:
+                code:
+                  type: integer
+                  maxLength: 1
+                  description: |
+                    Unique abbreviation for geocode feature. (e.g. "PRCL") (SAWG 7.4.1).
+                  example: 2
+                name:
+                  type: string
+                  maxLength: 50
+                  description: |
+                    Name of the geocode type code.
+                  example: PROPERTY CENTROID
   SingleLineAddress:
     type: string
     title: Single Line Address
@@ -254,7 +278,7 @@ definitions:
     title: Multi Line Address
     description: |
       The full address flattened to at most four lines. The primary use is for address labels
-    example: 
+    example:
       - LEVEL 25
       - TOWER 3
       - 300 BARANGAROO AV
