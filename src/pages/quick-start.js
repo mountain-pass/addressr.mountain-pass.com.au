@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import howItWorks from '../assets/images/addressr.svg';
 import Banner from '../components/Banner';
 import Layout from '../components/layout';
 import { getProfile } from '../utils/auth';
@@ -141,6 +142,7 @@ const QuickStart = () => {
             </ol>
 
             <h2>How it Works</h2>
+            <img src={howItWorks} alt="architectural diagram" />
             <h2>System requirements</h2>
             <h3>Elastic Search:</h3>
             <p>elasticsearch-oss &gt;= 7.2.0 with 1.4GiB of memory</p>
