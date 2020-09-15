@@ -136,6 +136,11 @@ class Layout extends React.Component {
         >
           <div id="wrapper">
             <Header onToggleMenu={this.handleToggleMenu} />
+            <h4 className="ribbon">
+              <a href="https://github.com/mountain-pass/addressr">
+                Find us on GitHub
+              </a>
+            </h4>
             {children}
             <Contact user={user} />
             <Drift
