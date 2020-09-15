@@ -52,6 +52,9 @@ const Menu = ({ onToggleMenu, user }) => {
             </Link>
           </li>
           <li>
+            <a href="https://github.com/mountain-pass/addressr">Code</a>
+          </li>
+          <li>
             <Link onClick={onToggleMenu} to="/quick-start/">
               Quick Start
             </Link>

@@ -33,10 +33,17 @@ const Footer = () => (
         <div className="col-3">
           <ul className="links">
             <li>
-              <Link to="/r/docs/">Docs</Link>
+              <a href="https://github.com/mountain-pass/addressr">Code</a>
             </li>
             <li>
-              <Link to="/r/enterprise-support/">Enterprise Support</Link>
+              <a href="https://www.npmjs.com/package/@mountainpass/addressr">
+                NPM
+              </a>
+            </li>
+            <li>
+              <a href="https://hub.docker.com/r/mountainpass/addressr">
+                Docker Hub
+              </a>
             </li>
           </ul>
         </div>
