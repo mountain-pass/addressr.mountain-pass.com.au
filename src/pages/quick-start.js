@@ -42,7 +42,7 @@ const QuickStart = () => {
                 </a>
               </li>
               <li>
-                Start elastic search. For example
+                Start elastic search. For example run:
                 <pre>
                   <code>
                     {
@@ -55,7 +55,7 @@ const QuickStart = () => {
                 </pre>
               </li>
               <li>
-                Start API server
+                Start API server. In a second window run:
                 <pre>
                   <code>
                     {'export ELASTIC_PORT=9200\n'}
@@ -65,7 +65,7 @@ const QuickStart = () => {
                 </pre>
               </li>
               <li>
-                Setup the env vars for the data loader, but runnning
+                Setup the env vars for the data loader. In a third window run:
                 <pre>
                   <code>
                     {'export ELASTIC_PORT=9200\n'}
