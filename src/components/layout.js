@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Drift from 'react-driftjs';
+// import Drift from 'react-driftjs';
 import Helmet from 'react-helmet';
 import '../assets/scss/main.scss';
 import { getProfile, isAuthenticated, login } from '../utils/auth';
@@ -127,7 +127,6 @@ class Layout extends React.Component {
       );
     } else {
       const user = getProfile();
-      console.log('USER', user);
       return (
         <div
           className={`body ${loading} ${
@@ -143,11 +142,11 @@ class Layout extends React.Component {
             </h4>
             {children}
             <Contact user={user} />
-            <Drift
+            {/* <Drift
               appId="8cne7yrgdapx"
               userId={user === undefined ? '' : user.sub}
               attributes={user}
-            />
+            /> */}
             <Footer />
           </div>
           <Menu onToggleMenu={this.handleToggleMenu} user={user} />

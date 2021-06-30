@@ -22,5 +22,6 @@
   "spellright.documentTypes": ["markdown", "latex", "plaintext"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "cSpell.words": ["Geocoded", "addressr", "rapidapi", "waychaser"]
 }

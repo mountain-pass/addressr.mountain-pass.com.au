@@ -11,6 +11,7 @@ import pic10 from '../assets/images/pic10.jpg';
 import pic11 from '../assets/images/pic11.jpg';
 import Banner from '../components/Banner';
 import Layout from '../components/layout';
+import Search from '../components/Search';
 import dataGovLogo from './Data-gov-au.jpg';
 
 const HomeIndex = () => {
@@ -36,13 +37,23 @@ const HomeIndex = () => {
           <p>Free Australian Address Validation, Search and Autocomplete</p>
           <ul className="actions">
             <li>
-              <Link to="/quick-start/" className="button next">
+              <Link to="/pricing/" className="button next">
                 Get Started Free
               </Link>
             </li>
           </ul>
         </div>
       </Banner>
+
+      <div>
+        <section id="zero" style={{ padding: '2em 3em 2em 3em' }}>
+          <article>
+            <div className="content">
+              <Search />
+            </div>
+          </article>
+        </section>
+      </div>
 
       <div id="main">
         <section id="one" className="tiles">
@@ -52,7 +63,11 @@ const HomeIndex = () => {
 
               <p>
                 Addresses validated against the Geocoded National Address File
-                (referred to as G-NAF), Australia’s authoritative address file.
+                (referred to as G-NAF), Australia’s{' '}
+                <strong style={{ color: 'black', fontWeight: '800' }}>
+                  authoritative
+                </strong>{' '}
+                address file.
               </p>
               <span
                 className="image fit"
@@ -79,17 +94,14 @@ const HomeIndex = () => {
           <article style={{ backgroundImage: `url(${pic02})` }}>
             <header className="major">
               <h3>
-                Software{' '}
+                Software As or{' '}
                 <strong style={{ color: 'black', fontWeight: '800' }}>
                   NOT
                 </strong>{' '}
                 As A Service
               </h3>
-              <p>We love SaaS, but not for address validation.</p>
-              <p>
-                On a public forms we want APIs where costs are controlled.
-                That&apos;s why we created Addressr.
-              </p>
+              <p>We love SaaS, but we know its not for everyone.</p>
+              <p>SaaS or self hosted, we&apos;ve got you covered.</p>
             </header>
             {/* <Link to="/landing" className="link primary" /> */}
           </article>
@@ -121,10 +133,10 @@ const HomeIndex = () => {
           </article>
           <article style={{ backgroundImage: `url(${pic05})` }}>
             <header className="major">
-              <h3>Run On Your Own Infrastructure</h3>
+              <h3>Run On Your Own Infrastructure or Use Ours</h3>
               <p>
                 On-premise or in the cloud, run Addressr on your own
-                infrastructure, so your have full control over costs.
+                infrastructure, or leave all the hard work to us.
               </p>
             </header>
             {/* <Link to="/landing" className="link primary" /> */}

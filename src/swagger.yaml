@@ -1,30 +1,27 @@
-swagger: "2.0"
+swagger: '2.0'
 info:
   description: |
-    Free Australian Address Validation, Search and Autocomplete
-  version: "1.0.0"
-  title: "Addressr by Mountain Pass"
-basePath: "/"
+    Australian Address Validation, Search and Autocomplete
+  version: '1.0.0'
+  title: 'Addressr by Mountain Pass'
+basePath: '/'
 tags:
   - name: address
 schemes:
-  - "https"
+  - 'https'
 produces:
-  - "application/json"
+  - 'application/json'
 paths:
   /:
     get:
-      summary: API Root
-      operationId: getApiRoot
-      x-swagger-router-controller: Default
-      x-root-rel: self
+      summary: Index
       description: |
         returns a list of available APIs within the `Link` headers
       responses:
         200:
           description: successful operation
           schema:
-            $ref: "#/definitions/Root"
+            $ref: '#/definitions/Index'
           headers:
             link:
               description: rfc5988 Links
@@ -32,20 +29,21 @@ paths:
               collectionFormat: csv
               items:
                 type: string
-                pattern: "<(.*)>;(.*)"
+                pattern: '<(.*)>;(.*)'
             link-template:
               description: rfc6570 Links Templates
               type: array
               collectionFormat: csv
               items:
                 type: string
-                pattern: "<(.*)>;(.*)"
+                pattern: '<(.*)>;(.*)'
+        503:
+          description: service unavailable
+        500:
+          description: unexpected error 
   /addresses:
     get:
-      summary: Get List of Addresses
-      operationId: getAddresses
-      x-swagger-router-controller: Addresses
-      x-root-rel: https://addressr.mountain-pass.com.au/rels/address-search
+      summary: Search for a list of addresses
       description: |
         returns a list of addresses matching the search string
       tags:
@@ -55,19 +53,12 @@ paths:
           in: query
           description: search string
           type: string
-          minLength: 3
           required: true
-        - name: p
-          in: query
-          description: page number
-          type: integer
-          minimum: 2
-          required: false
       responses:
         200:
           description: successful query
           schema:
-            $ref: "#/definitions/SearchResponse"
+            $ref: '#/definitions/SearchResponse'
           headers:
             link:
               description: rfc5988 Links
@@ -75,23 +66,23 @@ paths:
               collectionFormat: csv
               items:
                 type: string
-                pattern: "<(.*)>;(.*)"
+                pattern: '<(.*)>;(.*)'
             link-template:
               description: rfc6570 Links Templates
               type: array
               collectionFormat: csv
               items:
                 type: string
-                pattern: "<(.*)>;(.*)"
+                pattern: '<(.*)>;(.*)'
         400:
           description: invalid query
-          schema:
-            $ref: "#/definitions/ValidationError"
+        503:
+          description: service unavailable
+        500:
+          description: unexpected error 
   /addresses/{addressId}:
     get:
       summary: Get Address
-      operationId: getAddress
-      x-swagger-router-controller: Addresses
       description: |
         returns detailed information about a specific address
       tags:
@@ -106,7 +97,7 @@ paths:
         200:
           description: successful query
           schema:
-            $ref: "#/definitions/Address"
+            $ref: '#/definitions/Address'
           headers:
             link:
               description: rfc5988 Links
@@ -114,61 +105,80 @@ paths:
               collectionFormat: csv
               items:
                 type: string
-                pattern: "<(.*)>;(.*)"
+                pattern: '<(.*)>;(.*)'
             link-template:
               description: rfc6570 Links Templates
               type: array
               collectionFormat: csv
               items:
                 type: string
-                pattern: "<(.*)>;(.*)"
+                pattern: '<(.*)>;(.*)'
+        404:
+          description: not found
+        503:
+          description: service unavailable
+        500:
+          description: unexpected error 
 definitions:
-  Root:
+  Index:
     type: object
   SearchResponse:
     type: array
     description: |
       The list of addresses matching the search string. The list may be paginated.
-      A the `Link` header with a `rel` of `next` will be provied if there are addional results.
+      A the `Link` header with a `rel` of `next` will be provided if there are additional results.
     items:
       type: object
       title: Flattened Address
       required:
         - sla
         - score
-        - links
+        - pid
       properties:
         sla:
-          $ref: "#/definitions/SingleLineAddress"
+          $ref: '#/definitions/SingleLineAddress'
+        ssla:
+          $ref: '#/definitions/SingleLineAddress'
+        highlight:
+          type: object
+          required:
+            - sla
+          properties:
+            sla:
+              type: string
+              description: The full address flattened to a single line with matching search tokens highlighted
+              example: |
+                <em>LEVEL</em> <em>25</em>, <em>TOWER</em> <em>3</em>, <em>300</em> BARANGAROO AV, BARANGAROO NSW 2000
+            ssla:
+              description: The full address flattened to a single line with matching search tokens highlighted
+              example: |
+                L25, 2512/9 <em>POWER</em> ST, SOUTHBANK VIC <em>3006</em>
         score:
           type: number
           description: strength of the match relative to the other matches
-        links:
-          type: object
-          required:
-            - self
-          properties:
-            self:
-              type: object
-              required:
-                - href
-              properties:
-                href:
-                  type: string
-                  title: Link
-                  description: |
-                    The URL for the address, where additional information can be retrieved
+          example: 0.985051936618461
+        pid:
+          type: string
+          description: The Persistent Identifier is unique to the real world feature this record represents.
+          example: GANSW719386656
     example:
       - sla: LEVEL 25, TOWER 3, 300 BARANGAROO AV, BARANGAROO NSW 2000
+        highlight:
+          sla: |
+            <em>LEVEL</em> <em>25</em>, <em>TOWER</em> <em>3</em>, <em>300</em> BARANGAROO AV, BARANGAROO NSW 2000
         score: 1
-        links:
-          self:
-            href: /addresses/GANT_718592778
-      - sla: 109 KIRRIBILLI AV, KIRRIBILLI NSW 2061
+        pid: GANSW719386656
+      - sla: |
+          UNIT 1, 109 KIRRIBILLI AV, KIRRIBILLI NSW 2061
+        ssla: |
+          1/109 KIRRIBILLI AV, KIRRIBILLI NSW 2061
+        highlight:
+          sla: |
+            UNIT 1, <em>109</em> <em>KIRRIBILLI</em> <em>AV</em>, <em>KIRRIBILLI</em> NSW 2061
+          ssla: |
+            1/<em>109</em> <em>KIRRIBILLI</em> <em>AV</em>, <em>KIRRIBILLI</em> NSW 2061
         score: 0.985051936618461
-        links:
-          self:
-            href: /addresses/GANT_718592782
+        pid: GANSW717102496
   Address:
     type: object
     title: Physical Australian Address
@@ -178,27 +188,27 @@ definitions:
       If an address has a "flat" component (e.g. UNIT 12, 32 SOME ST...), then it will also have a
       the `ssla` and `smla` fields, which are shortended versions of `sla` and `mla`. e.g. (12/32 SOME ST...)
     required:
-      - "pid"
-      - "structured"
-      - "sla"
-      - "mla"
+      - 'pid'
+      - 'structured'
+      - 'sla'
+      - 'mla'
     properties:
       pid:
         type: string
         description: The Persistent Identifier is unique to the real world feature this record represents.
-        example: GANT_718592778
+        example: GANSW719386656
       structured:
-        $ref: "#/definitions/StructuredAddress"
+        $ref: '#/definitions/StructuredAddress'
       sla:
-        $ref: "#/definitions/SingleLineAddress"
+        $ref: '#/definitions/SingleLineAddress'
       ssla:
-        $ref: "#/definitions/SingleLineAddress"
+        $ref: '#/definitions/SingleLineAddress'
       mla:
-        $ref: "#/definitions/MultiLineAddress"
+        $ref: '#/definitions/MultiLineAddress'
       smla:
-        $ref: "#/definitions/MultiLineAddress"
+        $ref: '#/definitions/MultiLineAddress'
       geo:
-        $ref: "#/definitions/AddressGeocoding"
+        $ref: '#/definitions/AddressGeocoding'
   AddressGeocoding:
     type: object
     description: Geocoding information about the address
@@ -263,6 +273,12 @@ definitions:
                   description: |
                     Name of the geocode type code.
                   example: PROPERTY CENTROID
+            description:
+              type: string
+              maxLength: 50
+              description: |
+                Additional textual data
+              example: REAR
   SingleLineAddress:
     type: string
     title: Single Line Address
@@ -352,7 +368,7 @@ definitions:
             maxLength: 2
           number:
             type: integer
-            example: "64"
+            example: '64'
             maxLength: 5
           suffix:
             type: string
@@ -367,11 +383,11 @@ definitions:
             maxLength: 3
           number:
             type: integer
-            example: "20114"
+            example: '20114'
             maxLength: 6
           suffix:
             type: string
-            example: "AA"
+            example: 'AA'
             maxLength: 2
           last:
             type: object
@@ -382,11 +398,11 @@ definitions:
                 maxLength: 3
               number:
                 type: string
-                example: "20114"
+                example: '20114'
                 maxLength: 6
               suffix:
                 type: string
-                example: "C"
+                example: 'C'
                 maxLength: 2
       street:
         type: object
@@ -448,24 +464,9 @@ definitions:
             maxLength: 3
       postcode:
         type: string
-        example: "2000"
+        example: '2000'
         maxLength: 4
       confidence:
         type: integer
         description: |
           Reflects how many contributor databases this address appears in (0 = 1 database, 1 = 2 database etc.).
-  ValidationError:
-    type: object
-    properties:
-      code:
-        type: string
-      failedValidation:
-        type: boolean
-      path:
-        type: array
-        items:
-          type: string
-      paramName:
-        type: string
-      message:
-        type: string

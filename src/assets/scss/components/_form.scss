@@ -93,9 +93,14 @@ textarea {
     box-shadow: none;
   }
 
-  &:focus {
+  &:focus, &.highlight:focus {
     border-color: _palette(highlight);
     box-shadow: 0 0 0 2px _palette(highlight);
+  }
+
+  &.highlight {
+    border-color: _palette(fg);
+    box-shadow: 0 0 0 2px _palette(fg);
   }
 }
 

@@ -10,7 +10,11 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "prismjs": "^1.17.1"
+    "@mountainpass/waychaser": "^4.0.4",
+    "imurmurhash": "^0.1.4",
+    "prismjs": "^1.17.1",
+    "react-autosuggest": "^10.1.0",
+    "react-tabs": "^3.2.2"
   },
   "keywords": [
     "gatsby"
