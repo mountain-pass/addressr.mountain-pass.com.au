@@ -25,7 +25,7 @@
     "requirements-check": "./scripts/check-version.js",
     "prebuild": "if [ ! -z \"${CI2}\" ]; then ./scripts/create-dot-env.sh; fi",
     "build": "gatsby build",
-    "postbuild": "if [ ! -z \"${CI}\" ]; then ./scripts/purge-cache.sh; fi",
+    "postbuild": "cp _redirects public/_redirects && if [ ! -z \"${CI}\" ]; then ./scripts/purge-cache.sh; fi",
     "dev": "gatsby develop",
     "start": "gatsby serve",
     "npm-check": "npm-check --skip-unused",
