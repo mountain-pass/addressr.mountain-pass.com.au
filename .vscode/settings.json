@@ -23,5 +23,12 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "cSpell.words": ["Geocoded", "addressr", "rapidapi", "waychaser"]
+  "cSpell.words": [
+    "Geocoded",
+    "Gitter",
+    "addressr",
+    "mountainpass",
+    "rapidapi",
+    "waychaser"
+  ]
 }
