@@ -151,7 +151,7 @@ const HomeIndex = () => {
                 </strong>
                 &nbsp;
                 <br />
-                Or for peace of mind for your misson critical soultions, get
+                Or for peace of mind for your mission critical solutions, get
                 commercial support you can truly rely on.
               </p>
             </header>
