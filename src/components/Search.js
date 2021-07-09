@@ -76,9 +76,7 @@ class Search extends React.Component {
   }
 
   async componentDidMount() {
-    const addressr = await waychaser.load(
-      'https://cool-bush-ca66.addressr-key-provider.workers.dev',
-    );
+    const addressr = await waychaser.load('https://api.addressr.io');
     this.searcher = addressr.ops.find(
       'https://addressr.io/rels/address-search',
     );
