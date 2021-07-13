@@ -1,15 +1,22 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 const Header = ({ onToggleMenu }) => (
   <>
+    <h4 className="ribbon">
+      <a href="https://github.com/mountain-pass/addressr">
+        Find us on GitHub <FontAwesomeIcon icon={faGithub} />
+      </a>
+    </h4>
     <header id="header" className="alt">
       <Link to="/" className="logo">
         <strong style={{ marginRight: '0' }}>Addressr</strong>
       </Link>
-      <span>
+      <span id="by">
         by <a href="https://mountain-pass.com.au">Mountain Pass</a>
       </span>
 

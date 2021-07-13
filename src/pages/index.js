@@ -34,7 +34,7 @@ const HomeIndex = () => {
           <h1>Addressr</h1>
         </header>
         <div className="content">
-          <p>Free Australian Address Validation, Search and Autocomplete</p>
+          <p>Australian Address Validation, Search and Autocomplete</p>
           <ul className="actions">
             <li>
               <Link to="/pricing/" className="button next">
@@ -89,7 +89,12 @@ const HomeIndex = () => {
                 />
               </span>
             </header>
-            {/* <Link to="/landing" className="link primary" /> */}
+            <a
+              href="https://data.gov.au/dataset/ds-dga-19432f89-dc3a-4ef3-b943-5326ef1dbecc/details"
+              className="link primary"
+            >
+              {' '}
+            </a>
           </article>
           <article style={{ backgroundImage: `url(${pic02})` }}>
             <header className="major">
@@ -100,8 +105,20 @@ const HomeIndex = () => {
                 </strong>{' '}
                 As A Service
               </h3>
-              <p>We love SaaS, but we know its not for everyone.</p>
-              <p>SaaS or self hosted, we&apos;ve got you covered.</p>
+              <p>
+                We love{' '}
+                <a href="https://rapidapi.com/addressr-addressr-default/api/addressr/">
+                  SaaS
+                </a>
+                , but we know its not for everyone.
+              </p>
+              <p>
+                <a href="https://rapidapi.com/addressr-addressr-default/api/addressr/">
+                  SaaS
+                </a>{' '}
+                or <Link to="quick-start/#self-hosted">self hosted</Link>,
+                we&apos;ve got you covered.
+              </p>
             </header>
             {/* <Link to="/landing" className="link primary" /> */}
           </article>
@@ -177,7 +194,7 @@ const HomeIndex = () => {
             </p>
             <ul className="actions">
               <li>
-                <Link to="/quick-start/" className="button next">
+                <Link to="/pricing/" className="button next">
                   Get Started Free
                 </Link>
               </li>

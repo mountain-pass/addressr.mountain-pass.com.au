@@ -1,3 +1,10 @@
+import {
+  faDocker,
+  faGithub,
+  faGitter,
+  faNpm,
+} from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'gatsby';
 import React from 'react';
 
@@ -14,10 +21,14 @@ const Footer = () => (
               <Link to="/pricing/">Pricing</Link>
             </li>
             <li>
-              <Link to="/pricing/">Sign up</Link>
+              <a href="https://rapidapi.com/addressr-addressr-default/api/addressr/pricing">
+                Sign up
+              </a>
             </li>
             <li>
-              <Link to="/api-docs/">API Docs</Link>
+              <a to="https://rapidapi.com/addressr-addressr-default/api/addressr/">
+                API Docs
+              </a>
             </li>
             <li>
               <Link to="/download/">Download</Link>
@@ -26,23 +37,32 @@ const Footer = () => (
               <Link to="/quick-start/">Quick Start</Link>
             </li>
             <li>
-              <Link to="/community-support/">Community Support</Link>
+              <Link to="/community-support/">
+                Community Support <FontAwesomeIcon icon={faGitter} />
+              </Link>
             </li>
           </ul>
         </div>
         <div className="col-3">
           <ul className="links">
             <li>
-              <a href="https://github.com/mountain-pass/addressr">Code</a>
+              <a to="https://rapidapi.com/addressr-addressr-default/api/addressr/">
+                RapidAPI
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/mountain-pass/addressr">
+                Code <FontAwesomeIcon icon={faGithub} />
+              </a>
             </li>
             <li>
               <a href="https://www.npmjs.com/package/@mountainpass/addressr">
-                NPM
+                NPM <FontAwesomeIcon icon={faNpm} />
               </a>
             </li>
             <li>
               <a href="https://hub.docker.com/r/mountainpass/addressr">
-                Docker Hub
+                Docker Hub <FontAwesomeIcon icon={faDocker} />
               </a>
             </li>
           </ul>

@@ -35,6 +35,24 @@
   }
 }
 
+#by {
+  // @include breakpoint(xlarge) {
+  //   top: 3.25em;
+  // }
+
+  // @include breakpoint(large) {
+  //   top: 3.25em;
+  // }
+
+  // @include breakpoint(small) {
+  //   top: 2.75em;
+  // }
+
+  @include breakpoint(xsmall) {
+    display: none
+  }
+}
+
 #header {
   @include vendor('display', 'flex');
   background-color: _palette(bg-alt);
@@ -255,11 +273,13 @@
   @include breakpoint(small) {
     height: 2.75em;
     line-height: 2.75em;
+    font-size: smaller;
 
     .logo .status {
       padding: 0 1em;
       font-size: 0.8em;
     }
+
 
     nav {
       a {
@@ -323,4 +343,46 @@
       }
     }
   }
+}
+
+
+
+.ribbon {
+  margin: 0;
+  padding: 0;
+  background: rebeccapurple;
+  color: white;
+  padding: 1em 0;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  transform: translateX(30%) translateY(0%) rotate(45deg);
+  transform-origin: top left;
+  z-index: 100;
+
+  @include breakpoint(xsmall) {
+    display: none
+  }
+  @include breakpoint(small) {
+    // display: none
+    font-size: smaller
+  }
+
+}
+.ribbon:before,
+.ribbon:after {
+  content: '';
+  position: absolute;
+  top: 0px;
+  margin: 0 -1px; /* tweak */
+  width: 100%;
+  height: 100%;
+  background: rebeccapurple;
+}
+.ribbon:before {
+  right: 100%;
+}
+
+.ribbon:after {
+  left: 100%;
 }

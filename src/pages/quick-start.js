@@ -25,8 +25,32 @@ const QuickStart = () => {
       </Banner>
 
       <div id="main" className="alt">
-        <section id="one">
-          <div className="inner">
+        <section id="two">
+          <div className="inner" id="saas">
+            <h2>SaaS</h2>
+            <div style={{ width: 'fit-content' }}>
+              <a
+                href="https://rapidapi.com/addressr-addressr-default/api/addressr"
+                className="button next"
+              >
+                Try it now online for free
+              </a>
+              <p
+                style={{
+                  marginTop: '0.5em',
+                  fontSize: 'smaller',
+                  color: '#5393a8',
+                  textAlign: 'center',
+                }}
+              >
+                <em>No credit card required</em>
+              </p>
+            </div>
+          </div>
+        </section>
+        <section id="two">
+          <div className="inner" id="self-hosted">
+            <h2>Self hosted</h2>
             <ol>
               <li>
                 Install addressr

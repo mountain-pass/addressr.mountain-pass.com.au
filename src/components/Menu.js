@@ -1,4 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import { faGithub, faGitter } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -52,7 +54,9 @@ const Menu = ({ onToggleMenu, user }) => {
             </Link>
           </li>
           <li>
-            <a href="https://github.com/mountain-pass/addressr">Code</a>
+            <a href="https://github.com/mountain-pass/addressr">
+              Code <FontAwesomeIcon icon={faGithub} />
+            </a>
           </li>
           <li>
             <Link onClick={onToggleMenu} to="/quick-start/">
@@ -61,7 +65,7 @@ const Menu = ({ onToggleMenu, user }) => {
           </li>
           <li>
             <Link onClick={onToggleMenu} to="/community-support">
-              Community Support
+              Community Support <FontAwesomeIcon icon={faGitter} />
             </Link>
           </li>
           <li>
