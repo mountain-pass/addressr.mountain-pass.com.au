@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'gatsby';
 import React from 'react';
 
+React.createContext();
+
 const Footer = () => (
   <footer id="footer">
     <div className="inner">
@@ -97,7 +99,8 @@ const Footer = () => (
       </ul> */}
       <ul className="copyright">
         <li>
-          &copy; <a href="mountain-pass.com.au">Mountain Pass PTY LTD</a>
+          &copy;{' '}
+          <a href="https://mountain-pass.com.au">Mountain Pass PTY LTD</a>
         </li>
         <li>
           <em>Mountain Pass</em>, <em>Addressr</em> and{' '}
