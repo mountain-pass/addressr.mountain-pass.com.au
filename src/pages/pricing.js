@@ -47,7 +47,9 @@ const Pricing = () => {
                       <li className="pricing__feature">
                         Geo-location Enhanced Address Search
                       </li>
-                      <li className="pricing__feature">100 API Calls / Day</li>
+                      <li className="pricing__feature">
+                        100 API Calls / month
+                      </li>
                       <li className="pricing__feature">
                         Automatic Data Updates
                       </li>
@@ -85,7 +87,7 @@ const Pricing = () => {
                         Geo-location Enhanced Address Search
                       </li>
                       <li className="pricing__feature">
-                        1,000 API Calls / day
+                        1,000 API Calls / month
                       </li>
                       <li className="pricing__feature">
                         Automatic Data Updates
