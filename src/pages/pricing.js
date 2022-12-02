@@ -47,9 +47,7 @@ const Pricing = () => {
                       <li className="pricing__feature">
                         Geo-location Enhanced Address Search
                       </li>
-                      <li className="pricing__feature">
-                        1000 API Calls / Month
-                      </li>
+                      <li className="pricing__feature">100 API Calls / Day</li>
                       <li className="pricing__feature">
                         Automatic Data Updates
                       </li>
@@ -75,7 +73,7 @@ const Pricing = () => {
                   <p className="pricing__sentence">Mission Critical Support</p>
                   <div className="pricing__price mbr-title-font">
                     <span className="pricing__currency">$USD</span>
-                    <span>25 / mo</span>
+                    <span>15 / mo</span>
                     {/* <span className="pricing__currency">(USD)</span> */}
                   </div>
                   <div>
@@ -87,7 +85,7 @@ const Pricing = () => {
                         Geo-location Enhanced Address Search
                       </li>
                       <li className="pricing__feature">
-                        10000 API Calls / day
+                        1,000 API Calls / day
                       </li>
                       <li className="pricing__feature">
                         Automatic Data Updates

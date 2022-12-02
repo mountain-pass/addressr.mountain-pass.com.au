@@ -105,7 +105,7 @@ const Footer = () => (
         <li>
           <em>Mountain Pass</em>, <em>Addressr</em> and{' '}
           <em>the Address Logo</em> are trade marks of{' '}
-          <a href="mountain-pass.com.au">Mountain Pass PTY LTD</a>
+          <a href="https://mountain-pass.com.au">Mountain Pass PTY LTD</a>
         </li>
         <li>
           Base Website Design by <a href="https://html5up.net">HTML5 UP</a>
