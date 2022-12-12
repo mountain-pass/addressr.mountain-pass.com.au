@@ -81,7 +81,8 @@
     "react-driftjs": "^1.1.6",
     "react-helmet": "^5.2.0",
     "semver": "^6.1.1",
-    "swagger-ui-react": "^3.23.0"
+    "swagger-ui-react": "^3.23.0",
+    "btoa": "1.2.1"
   },
   "repository": {
     "type": "git",
