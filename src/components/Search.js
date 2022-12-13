@@ -1,5 +1,6 @@
 import { waychaser } from '@mountainpass/waychaser/dist/waychaser';
 import MurmurHash3 from 'imurmurhash';
+import { AbortController } from 'node-abort-controller';
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import Autosuggest from 'react-autosuggest';
@@ -7,22 +8,10 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
 const hashState = new MurmurHash3();
 
-// function addressrFetch(url, options) {
-//   const extendedOptions = Object.assign({}, options);
-//   extendedOptions.headers['x-rapidapi-key'] =
-//     'e585725ddbmsha28b0efb7db89b1p1858a7jsn6af8262345ac';
-//   extendedOptions.headers['x-rapidapi-host'] = 'addressr.p.rapidapi.com';
-//   return fetch(url, extendedOptions);
-// }
-
-// When suggestion is clicked, Autosuggest needs to populate the input
-// based on the clicked suggestion. Teach Autosuggest how to calculate the
-// input value for every given suggestion.
 const getSuggestionValue = suggestion => {
   return suggestion.body.sla;
 };
 
-// Use your imagination to render suggestions.
 const renderSuggestion = suggestion => {
   return (
     <div dangerouslySetInnerHTML={{ __html: suggestion.body.highlight.sla }} />
@@ -72,14 +61,15 @@ class Search extends React.Component {
     this.state = {
       value: '',
       suggestions: [],
+      searcher: undefined,
     };
   }
 
   async componentDidMount() {
     const addressr = await waychaser.load('https://api.addressr.io');
-    this.searcher = addressr.ops.find(
-      'https://addressr.io/rels/address-search',
-    );
+    this.setState({
+      searcher: addressr.ops.find('https://addressr.io/rels/address-search'),
+    });
   }
 
   onChange = (event, { newValue }) => {
@@ -90,8 +80,10 @@ class Search extends React.Component {
 
   // Autosuggest will call this function every time you need to update suggestions.
   // You already implemented this logic above, so just use it.
-  onSuggestionsFetchRequested = ({ value }) => {
-    this.search(value);
+  onSuggestionsFetchRequested = searcher => {
+    return ({ value }) => {
+      this.search(searcher, value);
+    };
   };
 
   // Autosuggest will call this function every time you need to clear suggestions.
@@ -113,8 +105,13 @@ class Search extends React.Component {
     });
   }
 
-  async search(value) {
-    const results = await this.searcher.invoke({ q: value });
+  async search(searcher, value) {
+    this.controller?.abort();
+    this.controller = new AbortController();
+    const results = await searcher.invoke(
+      { q: value },
+      { signal: this.controller.signal },
+    );
     const items = await Promise.all(
       results.ops.filter('item').map(op => op.invoke()),
     );
@@ -128,7 +125,7 @@ class Search extends React.Component {
   }
 
   render() {
-    const { value, suggestions, selected } = this.state;
+    const { value, suggestions, selected, searcher } = this.state;
 
     // Autosuggest will pass through all these props to the input.
     const inputProps = {
@@ -145,15 +142,21 @@ class Search extends React.Component {
           <label style={{ width: '100%', textAlign: 'center' }}>
             Try me out
           </label>
-          <Autosuggest
-            suggestions={suggestions}
-            onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-            onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-            getSuggestionValue={getSuggestionValue}
-            renderSuggestion={renderSuggestion}
-            onSuggestionSelected={this.onSuggestionSelected}
-            inputProps={inputProps}
-          />
+          {searcher ? (
+            <Autosuggest
+              suggestions={suggestions}
+              onSuggestionsFetchRequested={this.onSuggestionsFetchRequested(
+                searcher,
+              )}
+              onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+              getSuggestionValue={getSuggestionValue}
+              renderSuggestion={renderSuggestion}
+              onSuggestionSelected={this.onSuggestionSelected}
+              inputProps={inputProps}
+            />
+          ) : (
+            'loading...'
+          )}
           {selected ? (
             <Tabs>
               <TabList>
