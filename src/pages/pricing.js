@@ -75,7 +75,7 @@ const Pricing = () => {
                   <p className="pricing__sentence">Mission Critical Support</p>
                   <div className="pricing__price mbr-title-font">
                     <span className="pricing__currency">$USD</span>
-                    <span>0.01/req</span>
+                    <span>0.005/req</span>
                     {/* <span className="pricing__currency">(USD)</span> */}
                   </div>
                   <div>
