@@ -22,6 +22,21 @@ exports.onCreatePage = async ({ actions }) => {
     redirectInBrowser: true,
     toPath: `/quick-start/`,
   });
+
+  createRedirect({
+    fromPath: `/community-support`,
+    isPermanent: true,
+    redirectInBrowser: true,
+    toPath: `https://gitter.im/mountainpass-addressr/community/~embed`,
+  });
+
+  createRedirect({
+    fromPath: `/community-support/`,
+    isPermanent: true,
+    redirectInBrowser: true,
+    toPath: `https://gitter.im/mountainpass-addressr/community/~embed`,
+  });
+
 };
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
