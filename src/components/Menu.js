@@ -64,9 +64,9 @@ const Menu = ({ onToggleMenu, user }) => {
             </Link>
           </li>
           <li>
-            <Link onClick={onToggleMenu} to="/community-support">
+            <a href="https://gitter.im/mountainpass-addressr/community/~embed">
               Community Support <FontAwesomeIcon icon={faGitter} />
-            </Link>
+            </a>
           </li>
           <li>
             <a href="https://stats.uptimerobot.com/PK1GwT4YmX">
