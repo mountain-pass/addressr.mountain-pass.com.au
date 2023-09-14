@@ -32,7 +32,7 @@ const Pricing = () => {
               <div className="col-4 price-styles" style={{ display: 'block;' }}>
                 <div className="pricing__item price-four-el" data-hover="">
                   <h3 className="pricing__title mbr-title-font mbr-primary-color">
-                    FREE
+                    Trial
                   </h3>
                   <p className="pricing__sentence">100% Free. FOREVER</p>
                   <div className="pricing__price mbr-title-font">
@@ -58,7 +58,7 @@ const Pricing = () => {
                   </div>
                   <div>
                     <a
-                      href="https://rapidapi.com/addressr-addressr-default/api/addressr/pricing"
+                      href="https://checkout.projectx.biz/zmoWrVr9MLcVUzKyeC7jfJ"
                       className="button btn special mbr-title-font btn-primary next"
                     >
                       Get Started Free
@@ -72,7 +72,7 @@ const Pricing = () => {
                   <h3 className="pricing__title mbr-title-font mbr-primary-color">
                     PRO
                   </h3>
-                  <p className="pricing__sentence">Mission Critical Support</p>
+                  <p className="pricing__sentence">Only pay for what you use</p>
                   <div className="pricing__price mbr-title-font">
                     <span className="pricing__currency">$USD</span>
                     <span>0.005/req</span>
@@ -102,7 +102,7 @@ const Pricing = () => {
                   </div>
                   <div>
                     <a
-                      href="https://rapidapi.com/addressr-addressr-default/api/addressr/pricing"
+                      href="https://checkout.projectx.biz/i3r7kWEPrDJ4XFbZyBqf7a"
                       className="button btn special mbr-title-font btn-primary next"
                     >
                       Get Started
@@ -110,6 +110,109 @@ const Pricing = () => {
                   </div>
                 </div>
               </div>
+              <div className="col-2 price-styles" style={{ display: 'block;' }}>
+                &nbsp;
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="one-b">
+          <div className="inner">
+            <div className="grid-wrapper">
+              <div className="col-2 price-styles" style={{ display: 'block;' }}>
+                &nbsp;
+              </div>
+
+              <div className="col-4 price-styles" style={{ display: 'block;' }}>
+                <div className="pricing__item price-four-el">
+                  <h3 className="pricing__title mbr-title-font mbr-primary-color">
+                    Ultra
+                  </h3>
+                  <p className="pricing__sentence">
+                    Includes 20,000 requests/month
+                  </p>
+                  <div className="pricing__price mbr-title-font">
+                    <span className="pricing__currency">$USD</span>
+                    <span>49/month</span>
+                  </div>
+                  <div>
+                    <ul className="pricing__feature-list mbr-text-font">
+                      <li className="pricing__feature">Address Validation</li>
+                      <li className="pricing__feature">Address Autocomplete</li>
+                      <li className="pricing__feature">Address Search</li>
+                      <li className="pricing__feature">
+                        Geo-location Enhanced Address Search
+                      </li>
+                      <li className="pricing__feature">
+                        $USD 0.005/additional request
+                      </li>
+                      <li className="pricing__feature">
+                        Automatic Data Updates
+                      </li>
+                      <li
+                        className="pricing__feature"
+                        style={{ fontWeight: '600' }}
+                      >
+                        24×7 AEST SUPPORT
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <a
+                      href="https://checkout.projectx.biz/RbpertNhWavjiUjGgqu9R7"
+                      className="button btn special mbr-title-font btn-primary next"
+                    >
+                      Get Started
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-4 price-styles" style={{ display: 'block;' }}>
+                <div className="pricing__item price-four-el">
+                  <h3 className="pricing__title mbr-title-font mbr-primary-color">
+                    Mega
+                  </h3>
+                  <p className="pricing__sentence">
+                    Includes 200,000 requests/month
+                  </p>
+                  <div className="pricing__price mbr-title-font">
+                    <span className="pricing__currency">$USD</span>
+                    <span>299/month</span>
+                    {/* <span className="pricing__currency">(USD)</span> */}
+                  </div>
+                  <div>
+                    <ul className="pricing__feature-list mbr-text-font">
+                      <li className="pricing__feature">Address Validation</li>
+                      <li className="pricing__feature">Address Autocomplete</li>
+                      <li className="pricing__feature">Address Search</li>
+                      <li className="pricing__feature">
+                        Geo-location Enhanced Address Search
+                      </li>
+                      <li className="pricing__feature">
+                        $USD 0.005/additional request
+                      </li>
+                      <li className="pricing__feature">
+                        Automatic Data Updates
+                      </li>
+                      <li
+                        className="pricing__feature"
+                        style={{ fontWeight: '600' }}
+                      >
+                        24×7 AEST SUPPORT
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <a
+                      href="https://checkout.projectx.biz/kXJaqVBJ9gGTyTsx7HXXuU"
+                      className="button btn special mbr-title-font btn-primary next"
+                    >
+                      Get Started
+                    </a>
+                  </div>
+                </div>
+              </div>
+
               <div className="col-2 price-styles" style={{ display: 'block;' }}>
                 &nbsp;
               </div>
