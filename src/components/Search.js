@@ -1,20 +1,20 @@
-import { waychaser } from '@mountainpass/waychaser/dist/waychaser';
 import MurmurHash3 from 'imurmurhash';
 import { AbortController } from 'node-abort-controller';
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import Autosuggest from 'react-autosuggest';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+import { fetchLink } from '@windyroad/fetch-link';
 
 const hashState = new MurmurHash3();
 
 const getSuggestionValue = suggestion => {
-  return suggestion.body.sla;
+  return suggestion.sla;
 };
 
 const renderSuggestion = suggestion => {
   return (
-    <div dangerouslySetInnerHTML={{ __html: suggestion.body.highlight.sla }} />
+    <div dangerouslySetInnerHTML={{ __html: suggestion.highlight.sla }} />
   );
 };
 
@@ -61,14 +61,15 @@ class Search extends React.Component {
     this.state = {
       value: '',
       suggestions: [],
-      searcher: undefined,
+      addressr: undefined,
+      controller: undefined,
     };
   }
 
   async componentDidMount() {
-    const addressr = await waychaser.load('https://api.addressr.io');
+    const addressr = await fetchLink('https://api.addressr.io');
     this.setState({
-      searcher: addressr.ops.find('https://addressr.io/rels/address-search'),
+      addressr
     });
   }
 
@@ -80,9 +81,9 @@ class Search extends React.Component {
 
   // Autosuggest will call this function every time you need to update suggestions.
   // You already implemented this logic above, so just use it.
-  onSuggestionsFetchRequested = searcher => {
+  onSuggestionsFetchRequested = (addressr) => {
     return ({ value }) => {
-      this.search(searcher, value);
+      this.search(value, addressr);
     };
   };
 
@@ -98,34 +99,58 @@ class Search extends React.Component {
   };
 
   async setSelected(selected) {
-    const canonical = await selected.item.invoke('canonical');
-    const body = await canonical.body();
+    const canonical = await fetchLink(`https://api.addressr.io/addresses/${selected.pid}`);
+    const json = await canonical.json();
+    console.log({json})
     this.setState({
-      selected: body,
-    });
+        selected: json,
+      });
+    // const canonical = await selected.item.invoke('canonical');
+    // const body = await canonical.body();
+    // this.setState({
+    //   selected: body,
+    // });
   }
 
-  async search(searcher, value) {
-    this.controller?.abort();
-    this.controller = new AbortController();
-    const results = await searcher.invoke(
-      { q: value },
-      { signal: this.controller.signal },
-    );
-    const items = await Promise.all(
-      results.ops.filter('item').map(op => op.invoke()),
-    );
-    const itemBodies = await Promise.all(items.map(item => item.body()));
+  async search(value, addressr) {
+    this.state.controller?.abort();
+    const controller = new AbortController();
     this.setState({
-      suggestions: items.map((item, index) => ({
-        item,
-        body: itemBodies[index],
-      })),
+      controller,
     });
+    const link = addressr.links('https://addressr.io/rels/address-search', { q: value.trim() })[0];
+    try {
+      const results = await fetchLink(link, { signal: controller.signal });
+      // const results = await searchLink.invoke(
+      //   { q: value },
+      //   { signal: this.controller.signal },
+      // );
+      const items = await results.json();
+      // const items = await Promise.all(
+      //   results.ops.filter('item').map(op => op.invoke()),
+      // );
+  //    const itemBodies = await Promise.all(items.map(item => item.json()));    
+      // const itemBodies = await Promise.all(items.map(item => item.body()));
+      this.setState({
+        suggestions: items,
+      });
+    }
+    catch(error) {
+      if( error.name === 'AbortError' ) {
+        // ignore
+      }
+      else {
+        console.error({name: error.name});
+        console.error(error);
+        console.error({error});
+        console.error(error.message);
+        throw error;
+      }
+    }
   }
 
   render() {
-    const { value, suggestions, selected, searcher } = this.state;
+    const { value, suggestions, selected, addressr } = this.state;
 
     // Autosuggest will pass through all these props to the input.
     const inputProps = {
@@ -142,11 +167,11 @@ class Search extends React.Component {
           <label style={{ width: '100%', textAlign: 'center' }}>
             Try me out
           </label>
-          {searcher ? (
+          {addressr ? (
             <Autosuggest
               suggestions={suggestions}
               onSuggestionsFetchRequested={this.onSuggestionsFetchRequested(
-                searcher,
+                addressr
               )}
               onSuggestionsClearRequested={this.onSuggestionsClearRequested}
               getSuggestionValue={getSuggestionValue}

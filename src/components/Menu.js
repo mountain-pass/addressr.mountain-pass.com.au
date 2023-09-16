@@ -79,7 +79,7 @@ const Menu = ({ onToggleMenu, user }) => {
           {acc}
         </ul>{' '}
       </div>
-      <a className="close" onClick={onToggleMenu} href="javascript:;">
+      <a className="close" onClick={onToggleMenu}>
         Close
       </a>
     </nav>

@@ -1,17 +1,4 @@
-# Project dependencies
-.cache
-node_modules
-yarn-error.log
-package-lock.json
-yarn.lock
-
-# Build directory
-/public
-.DS_Store
-
-# Deploy
-deploy/.terraform
-deploy/plan
-deploy/generated*
-.env.development
-.env.production
+node_modules/
+.cache/
+public
+src/gatsby-types.d.ts

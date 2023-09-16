@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 // import Drift from 'react-driftjs';
-import Helmet from 'react-helmet';
 import '../assets/scss/main.scss';
-import { getProfile, isAuthenticated, login } from '../utils/auth';
 import Contact from './Contact';
 import Footer from './Footer';
 import Header from './Header';
@@ -94,39 +92,39 @@ class Layout extends React.Component {
   render() {
     const { children } = this.props;
     const { loading, isMenuVisible } = this.state;
-    const isRestrictedPage =
-      typeof window !== 'undefined' &&
-      window.location.pathname.startsWith('/r/');
-    if (isRestrictedPage && !isAuthenticated()) {
-      login();
-      return (
-        <div
-          className={`body ${loading} ${
-            isMenuVisible ? 'is-menu-visible' : ''
-          }`}
-        >
-          <div id="wrapper">
-            <Header onToggleMenu={this.handleToggleMenu} />
-            <Helmet>
-              <title>Addressr by Mountain Pass</title>
-              <meta name="description" content="Addressr by Mountain Pass" />
-            </Helmet>
+    // const isRestrictedPage =
+    //   typeof window !== 'undefined' &&
+    //   window.location.pathname.startsWith('/r/');
+    // if (isRestrictedPage && !isAuthenticated()) {
+    //   login();
+    //   return (
+    //     <div
+    //       className={`body ${loading} ${
+    //         isMenuVisible ? 'is-menu-visible' : ''
+    //       }`}
+    //     >
+    //       <div id="wrapper">
+    //         <Header onToggleMenu={this.handleToggleMenu} />
+    //         <Helmet>
+    //           <title>Addressr by Mountain Pass</title>
+    //           <meta name="description" content="Addressr by Mountain Pass" />
+    //         </Helmet>
 
-            <div id="main" className="alt">
-              <section id="one">
-                <div className="inner">
-                  <p>Redirecting to login...</p>
-                  {/* TODO: Add spinner */}
-                </div>
-              </section>
-            </div>
-            <Footer />
-          </div>
-          <Menu onToggleMenu={this.handleToggleMenu} />
-        </div>
-      );
-    } else {
-      const user = getProfile();
+    //         <div id="main" className="alt">
+    //           <section id="one">
+    //             <div className="inner">
+    //               <p>Redirecting to login...</p>
+    //               {/* TODO: Add spinner */}
+    //             </div>
+    //           </section>
+    //         </div>
+    //         <Footer />
+    //       </div>
+    //       <Menu onToggleMenu={this.handleToggleMenu} />
+    //     </div>
+    //   );
+    // } else {
+      // const user = getProfile();
       return (
         <div
           className={`body ${loading} ${
@@ -136,7 +134,7 @@ class Layout extends React.Component {
           <div id="wrapper">
             <Header onToggleMenu={this.handleToggleMenu} />
             {children}
-            <Contact user={user} />
+            <Contact />
             {/* <Drift
               appId="8cne7yrgdapx"
               userId={user === undefined ? '' : user.sub}
@@ -144,10 +142,10 @@ class Layout extends React.Component {
             /> */}
             <Footer />
           </div>
-          <Menu onToggleMenu={this.handleToggleMenu} user={user} />
+          <Menu onToggleMenu={this.handleToggleMenu} />
         </div>
       );
-    }
+    // }
   }
 }
 

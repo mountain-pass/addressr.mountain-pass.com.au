@@ -3,10 +3,10 @@ import Helmet from 'react-helmet';
 import howItWorks from '../assets/images/addressr.svg';
 import Banner from '../components/Banner';
 import Layout from '../components/layout';
-import { getProfile } from '../utils/auth';
+// import { getProfile } from '../utils/auth';
 
 const QuickStart = () => {
-  const user = getProfile();
+  const user = undefined; //getProfile();
 
   return (
     <Layout user={user}>

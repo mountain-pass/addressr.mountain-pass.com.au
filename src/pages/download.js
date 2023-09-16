@@ -3,10 +3,10 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import Banner from '../components/Banner';
 import Layout from '../components/layout';
-import { getProfile } from '../utils/auth';
+// import { getProfile } from '../utils/auth';
 
 const Downloads = () => {
-  const user = getProfile();
+  const user = undefined; //getProfile();
   return (
     <Layout user={user}>
       <Helmet>

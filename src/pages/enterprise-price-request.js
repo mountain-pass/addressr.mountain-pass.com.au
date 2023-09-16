@@ -5,7 +5,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import Banner from '../components/Banner';
 import Layout from '../components/layout';
-import { setProfile } from '../utils/auth';
+// import { setProfile } from '../utils/auth';
 
 class EntPriceRequest extends React.Component {
   constructor(props) {
@@ -149,9 +149,9 @@ class EntPriceRequest extends React.Component {
     }
     this.setState({ sending: true, sent: false });
     const { user } = this.props;
-    if (user === undefined || user.iss === undefined) {
-      setProfile({ name: email, nickname: name, phone, org });
-    }
+    // if (user === undefined || user.iss === undefined) {
+    //   setProfile({ name: email, nickname: name, phone, org });
+    // }
     typeof window !== 'undefined' &&
       window.gtag('event', 'conversion', {
         send_to: 'AW-1028974242/VmTVCL3p6aoBEKLN0-oD',

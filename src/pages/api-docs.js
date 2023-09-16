@@ -1,9 +1,9 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import 'swagger-ui-react/swagger-ui.css';
 import Layout from '../components/layout';
-import SwaggerUI from '../components/SwaggerUI';
 import spec from '../swagger.yaml';
+import SwaggerUI from "swagger-ui-react"
+import "swagger-ui-react/swagger-ui.css"
 
 const ApiDocs = () => {
   return (
@@ -16,11 +16,12 @@ const ApiDocs = () => {
         />
       </Helmet>
       <div className="swagger-wrapper">
-        <SwaggerUI
+        <SwaggerUI spec={spec} docExpansion="full" supportedSubmitMethods={[]}/>
+        {/* <SwaggerUI
           spec={spec}
           docExpansion="full"
           supportedSubmitMethods={[]}
-        />
+        /> */}
       </div>
     </Layout>
   );

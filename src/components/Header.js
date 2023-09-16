@@ -21,7 +21,7 @@ const Header = ({ onToggleMenu }) => (
       </span>
 
       <nav>
-        <a className="menu-link" onClick={onToggleMenu} href="javascript:;">
+        <a className="menu-link" onClick={onToggleMenu}>
           Menu
         </a>
       </nav>

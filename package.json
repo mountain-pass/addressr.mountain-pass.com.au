@@ -1,116 +1,49 @@
 {
-  "name": "addressr.mountain-pass.com.au",
-  "description": "Website for Addressr",
+  "name": "addressr.io",
   "version": "1.0.0",
-  "author": "Mountain Pass <addressr@mountain-pass.com.au>",
-  "engines": {
-    "node": ">=11.14.0"
-  },
-  "browser": {
-    "fs": false,
-    "path": false,
-    "os": false
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.19",
-    "@fortawesome/free-brands-svg-icons": "^5.15.3",
-    "@fortawesome/free-solid-svg-icons": "^5.9.0",
-    "@fortawesome/react-fontawesome": "^0.1.4",
-    "@mountainpass/waychaser": "4.0.4",
-    "gitter-sidecar": "^1.5.0",
-    "imurmurhash": "^0.1.4",
-    "prismjs": "^1.17.1",
-    "react-autosuggest": "^10.1.0",
-    "react-tabs": "^3.2.2"
-  },
+  "private": true,
+  "description": "addressr.io",
+  "author": "Tom Howard",
   "keywords": [
     "gatsby"
   ],
-  "license": "SEE LICENSE IN LICENSE.md",
   "scripts": {
-    "postinstall": "npm run requirements-check",
-    "requirements-check": "./scripts/check-version.js",
-    "prebuild": "if [ ! -z \"${CI2}\" ]; then ./scripts/create-dot-env.sh; fi",
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
     "build": "gatsby build",
-    "postbuild": "cp _redirects public/_redirects && if [ ! -z \"${CI}\" ]; then ./scripts/purge-cache.sh; fi",
-    "dev": "gatsby develop",
-    "start": "gatsby serve",
-    "npm-check": "npm-check --skip-unused",
-    "npm-check:interactive": "npm-check --skip-unused -u ",
-    "npm-check-unused": "npm-check",
-    "lint": "node_modules/.bin/eslint src --fix"
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@mdx-js/react": "^2.3.0",
+    "@mountainpass/waychaser": "^5.0.11",
+    "@windyroad/fetch-link": "^3.0.5",
+    "gatsby": "^5.12.4",
+    "gatsby-plugin-google-gtag": "^5.12.0",
+    "gatsby-plugin-image": "^3.12.0",
+    "gatsby-plugin-manifest": "^5.12.0",
+    "gatsby-plugin-mdx": "^5.12.0",
+    "gatsby-plugin-sass": "^6.12.0",
+    "gatsby-plugin-sharp": "^5.12.0",
+    "gatsby-plugin-sitemap": "^6.12.0",
+    "gatsby-source-filesystem": "^5.12.0",
+    "gatsby-transformer-sharp": "^5.12.0",
+    "react": "^18.2.0",
+    "react-autosuggest": "^10.1.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-tabs": "^6.0.2",
+    "sass": "^1.67.0",
+    "swagger-ui-react": "^5.7.1"
   },
   "devDependencies": {
-    "@reach/router": "^1.2.1",
-    "@slack/web-api": "^5.0.1",
-    "auth0-js": "^9.11.1",
-    "babel-runtime": "^6.26.0",
-    "btoa": "1.2.1",
-    "cross-fetch": "^3.1.4",
-    "eslint": "^5.7.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-config-prettier-standard": "^2.0.0",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-json": "^1.2.1",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-node": "^7.0.1",
-    "eslint-plugin-prettier": "^2.6.2",
-    "eslint-plugin-promise": "^3.8.0",
-    "eslint-plugin-react": "^7.11.1",
-    "eslint-plugin-standard": "^3.1.0",
-    "fetch": "^1.1.0",
-    "gatsby": "^2.2.9",
-    "gatsby-plugin-favicon": "^3.1.6",
-    "gatsby-plugin-force-trailing-slashes": "^1.0.4",
-    "gatsby-plugin-google-analytics": "^2.1.1",
-    "gatsby-plugin-google-gtag": "^1.1.8",
-    "gatsby-plugin-manifest": "^2.0.24",
-    "gatsby-plugin-offline": "^2.0.25",
-    "gatsby-plugin-react-helmet": "^3.0.10",
-    "gatsby-plugin-sass": "^2.0.11",
-    "gatsby-plugin-sitemap": "^2.2.1",
-    "husky": "^1.1.2",
-    "imagemin-lint-staged": "^0.4.0",
-    "ky": "^0.11.1",
-    "lint-staged": "^7.3.0",
-    "node-abort-controller": "^3.0.1",
-    "node-sass": "^4.11.0",
-    "npm-check": "^5.9.0",
-    "prettier": "^1.14.2",
-    "react": "^16.8.5",
-    "react-dom": "^16.8.5",
-    "react-driftjs": "^1.1.6",
-    "react-helmet": "^5.2.0",
-    "semver": "^6.1.1",
-    "swagger-ui-react": "^3.23.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mountain-pass/addressr.mountain-pass.com.au.git"
-  },
-  "bugs": {
-    "url": "https://github.com/mountain-pass/addressr.mountain-pass.com.au/issues"
-  },
-  "homepage": "https://addressr.mountain-pass.com.au",
-  "lint-staged": {
-    "*.{js,jsx}": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{json,css,md}": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.{png,jpeg,jpg,gif}": [
-      "imagemin-lint-staged",
-      "git add"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "@types/node": "^20.3.3",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "typescript": "^5.1.6"
   }
 }

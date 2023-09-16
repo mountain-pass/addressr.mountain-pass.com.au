@@ -3,7 +3,6 @@ import { faPaperPlane, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { setProfile } from '../utils/auth';
 
 class Contact extends React.Component {
   constructor(props) {
@@ -52,7 +51,7 @@ class Contact extends React.Component {
     console.log(labels);
     const label = Array.prototype.slice
       .call(labels, 0)
-      .filter(l => l.htmlFor == name)[0];
+      .filter(l => l.htmlFor === name)[0];
     console.log(label);
 
     const labelText = label === undefined ? name : label.innerHTML;
@@ -107,7 +106,7 @@ class Contact extends React.Component {
     this.setState({ sending: true, sent: false });
     const { user } = this.props;
     if (user === undefined || user.iss === undefined) {
-      setProfile({ nickname: name, name: email });
+      // setProfile({ nickname: name, name: email });
     }
     return fetch(
       'https://hooks.slack.com/services/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',
@@ -135,7 +134,7 @@ class Contact extends React.Component {
         }
       })
       .catch(e => {
-        if (`${e}` == 'TypeError: Failed to fetch') {
+        if (`${e}` === 'TypeError: Failed to fetch') {
           this.setState({
             error: `Error: Message sending failed. Sorry.`,
             sending: false,
@@ -272,7 +271,7 @@ class Contact extends React.Component {
               <a href="tel:+61 402 756 685">+61 402 756 685</a>
             </div>
           </section> */}
-            <section>
+            {/* <section>
               <div className="contact-method">
                 <span className="icon alt fa-home" />
                 <h3>Address</h3>
@@ -288,7 +287,7 @@ class Contact extends React.Component {
                   Australia
                 </span>
               </div>
-            </section>
+            </section> */}
           </section>
         </div>
       </section>
