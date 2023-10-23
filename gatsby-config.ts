@@ -14,7 +14,7 @@ const config: GatsbyConfig = {
   plugins: ["gatsby-plugin-sass", "gatsby-plugin-image", "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
     options: {
-      start_url: '/home/',
+      start_url: '/',
       icon: 'src/assets/images/addressr-square.png', // This path is relative to the root of the site.
     }
   }, "gatsby-plugin-mdx", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
