@@ -23,6 +23,7 @@
     "@mountainpass/waychaser": "^5.0.11",
     "@windyroad/fetch-link": "^3.0.5",
     "gatsby": "^5.12.4",
+    "gatsby-plugin-force-trailing-slashes": "^1.0.6",
     "gatsby-plugin-google-gtag": "^5.12.0",
     "gatsby-plugin-image": "^3.12.0",
     "gatsby-plugin-manifest": "^5.12.0",
