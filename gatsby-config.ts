@@ -14,7 +14,12 @@ const config: GatsbyConfig = {
   plugins: ["gatsby-plugin-sass", "gatsby-plugin-image", "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
     options: {
+      name: 'Addressr by Mountain Pass',
+      short_name: 'addressr',
       start_url: '/',
+      background_color: '#242943',
+      theme_color: '#242943',
+      display: 'minimal-ui',
       icon: 'src/assets/images/addressr-square.png', // This path is relative to the root of the site.
     }
   }, "gatsby-plugin-mdx", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {

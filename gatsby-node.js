@@ -16,13 +16,6 @@ exports.onCreatePage = async ({ actions }) => {
     toPath: `/quick-start/`,
   });
 
-  // createRedirect({
-  //   fromPath: `/`,
-  //   isPermanent: true,
-  //   redirectInBrowser: true,
-  //   toPath: `/home/`,
-  // });
-
   createRedirect({
     fromPath: `/community-support`,
     isPermanent: true,
