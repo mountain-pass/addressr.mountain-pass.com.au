@@ -152,10 +152,10 @@ class EntPriceRequest extends React.Component {
     // if (user === undefined || user.iss === undefined) {
     //   setProfile({ name: email, nickname: name, phone, org });
     // }
-    typeof window !== 'undefined' &&
-      window.gtag('event', 'conversion', {
-        send_to: 'AW-1028974242/VmTVCL3p6aoBEKLN0-oD',
-      });
+    // typeof window !== 'undefined' &&
+    //   window.gtag('event', 'conversion', {
+    //     send_to: 'AW-1028974242/VmTVCL3p6aoBEKLN0-oD',
+    //   });
 
     return fetch(
       'https://hooks.slack.com/services/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',
@@ -331,7 +331,7 @@ class EntPriceRequest extends React.Component {
                         <FontAwesomeIcon icon={faSpinner} pulse />
                       ) : (
                         <span role="img" aria-label="surprise">
-                          😱
+                          ✉️
                         </span>
                       )}
                     </button>

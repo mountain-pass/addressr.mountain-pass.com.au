@@ -58,7 +58,7 @@ const Pricing = () => {
                   </div>
                   <div>
                     <a
-                      href="https://checkout.projectx.biz/zmoWrVr9MLcVUzKyeC7jfJ"
+                      href="https://rapidapi.com/addressr-addressr-default/api/addressr/pricing"
                       className="button btn special mbr-title-font btn-primary next"
                     >
                       Get Started Free
@@ -102,7 +102,7 @@ const Pricing = () => {
                   </div>
                   <div>
                     <a
-                      href="https://checkout.projectx.biz/i3r7kWEPrDJ4XFbZyBqf7a"
+                      href="https://rapidapi.com/addressr-addressr-default/api/addressr/pricing"
                       className="button btn special mbr-title-font btn-primary next"
                     >
                       Get Started
@@ -159,7 +159,7 @@ const Pricing = () => {
                   </div>
                   <div>
                     <a
-                      href="https://checkout.projectx.biz/RbpertNhWavjiUjGgqu9R7"
+                      href="https://rapidapi.com/addressr-addressr-default/api/addressr/pricing"
                       className="button btn special mbr-title-font btn-primary next"
                     >
                       Get Started
@@ -204,7 +204,7 @@ const Pricing = () => {
                   </div>
                   <div>
                     <a
-                      href="https://checkout.projectx.biz/kXJaqVBJ9gGTyTsx7HXXuU"
+                      href="https://rapidapi.com/addressr-addressr-default/api/addressr/pricing"
                       className="button btn special mbr-title-font btn-primary next"
                     >
                       Get Started
