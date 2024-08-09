@@ -20,14 +20,14 @@ exports.onCreatePage = async ({ actions }) => {
     fromPath: `/community-support`,
     isPermanent: true,
     redirectInBrowser: true,
-    toPath: `https://gitter.im/mountainpass-addressr/community/~embed`,
+    toPath: `https://app.gitter.im/#/room/#mountainpass-addressr_community:gitter.im`,
   });
 
   createRedirect({
     fromPath: `/community-support/`,
     isPermanent: true,
     redirectInBrowser: true,
-    toPath: `https://gitter.im/mountainpass-addressr/community/~embed`,
+    toPath: `https://app.gitter.im/#/room/#mountainpass-addressr_community:gitter.im`,
   });
 
 };
