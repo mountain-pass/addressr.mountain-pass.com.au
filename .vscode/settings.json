@@ -10,13 +10,13 @@
   ],
   "[javascript]": {
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true
+      "source.organizeImports": "explicit"
     },
     "editor.formatOnSave": false
   },
   "[javascriptreact]": {
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true
+      "source.organizeImports": "explicit"
     },
     "editor.formatOnSave": false
   },

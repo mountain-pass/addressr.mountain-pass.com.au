@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 // import Drift from 'react-driftjs';
 import '../assets/scss/main.scss';
-import Contact from './Contact';
 import Footer from './Footer';
 import Header from './Header';
 import Menu from './Menu';
@@ -134,7 +133,6 @@ class Layout extends React.Component {
           <div id="wrapper">
             <Header onToggleMenu={this.handleToggleMenu} />
             {children}
-            <Contact />
             {/* <Drift
               appId="8cne7yrgdapx"
               userId={user === undefined ? '' : user.sub}

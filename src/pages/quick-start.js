@@ -66,14 +66,14 @@ const QuickStart = () => {
                 </a>
               </li>
               <li>
-                Start elastic search. For example run:
+                Start opensearch. For example run:
                 <pre>
                   <code>
                     {
-                      'docker pull docker.elastic.co/elasticsearch/elasticsearch:7.2.0\n'
+                      'docker pull opensearchproject/opensearch:1.2.4docker pull opensearchproject/opensearch:1.2.4\n'
                     }
                     {
-                      'docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.2.0'
+                      'docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -e "plugins.security.disabled=true" opensearchproject/opensearch:1.2.4'
                     }
                   </code>
                 </pre>
@@ -84,7 +84,7 @@ const QuickStart = () => {
                   <code>
                     {'export ELASTIC_PORT=9200\n'}
                     {'export ELASTIC_HOST=localhost\n'}
-                    {'addressr-server\n'}
+                    {'addressr-server-2\n'}
                   </code>
                 </pre>
               </li>
@@ -159,26 +159,22 @@ const QuickStart = () => {
                   </code>
                 </pre>
               </li>
+              <li>An updated G-NAF is released every 3 months. Put addressr-loader in a cron job or similar to keep addressr regularly updated</li>
               <li>Wire you address form up to the address-server api.</li>
-              <li>
-                An updated G-NAF is released every 3 months. Put{' '}
-                <code>addressr-loader</code> in a cron job or similar to keep
-                addressr regularly updated
-              </li>
             </ol>
 
             <h2>How it Works</h2>
             <img src={howItWorks} alt="architectural diagram" />
             <h2>System requirements</h2>
-            <h3>Elastic Search:</h3>
-            <p>elasticsearch-oss &gt;= 7.2.0 with 1.4GiB of memory</p>
+            <h3>Open Search:</h3>
+            <p>opensearch ≥ 1.2.4 with 1.4GiB of memory</p>
             <h3>Addressr Loader</h3>
             <h4>Default</h4>
-            <p>Node JS &gt;= 11.14.0 with 1GiB of memory</p>
+            <p>Node JS &gt;= 12.11.0 with 1GiB of memory</p>
             <h4>With Geocoding enabled</h4>
-            <p>Node JS &gt;= 11.14.0 with 8GiB of memory</p>
+            <p>Node JS &gt;= 12.11.0 with 8GiB of memory</p>
             <h3>Addressr Server</h3>
-            <p>Node JS &gt;= 11.14.0 with 64MiB of memory</p>
+            <p>Node JS &gt;= 12.11.0 with 64MiB of memory</p>
           </div>
         </section>
       </div>
