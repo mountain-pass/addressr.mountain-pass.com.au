@@ -1,4 +1,5 @@
 import { Link } from 'gatsby';
+import React from 'react';
 import Helmet from 'react-helmet';
 import pic01 from '../assets/images/pic01.jpg';
 import pic02 from '../assets/images/pic02.jpg';
