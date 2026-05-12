@@ -1,5 +1,4 @@
 import { Link } from 'gatsby';
-import React from 'react';
 import Helmet from 'react-helmet';
 import pic01 from '../assets/images/pic01.jpg';
 import pic02 from '../assets/images/pic02.jpg';
@@ -44,7 +43,7 @@ const HomeIndex = () => {
         </div>
       </Banner>
 
-      {/* <div>
+      <div>
         <section id="zero" style={{ padding: '2em 3em 2em 3em' }}>
           <article>
             <div className="content">
@@ -52,7 +51,7 @@ const HomeIndex = () => {
             </div>
           </article>
         </section>
-      </div> */}
+      </div>
 
       <div id="main">
         <section id="one" className="tiles">
