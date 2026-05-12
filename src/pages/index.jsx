@@ -10,6 +10,7 @@ import pic10 from '../assets/images/pic10.jpg';
 import pic11 from '../assets/images/pic11.jpg';
 import Banner from '../components/Banner';
 import Layout from '../components/layout';
+import Search from '../components/Search';
 import dataGovLogo from './Data-gov-au.jpg';
 
 const HomeIndex = () => {
